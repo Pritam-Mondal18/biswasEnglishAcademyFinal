@@ -14,7 +14,8 @@ import Services from "./routes/Services.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/Biswas-English-Academy",
+    // path: "/Biswas-English-Academy",
+    path: "/",
     element: <App />,
     children: [
       {
