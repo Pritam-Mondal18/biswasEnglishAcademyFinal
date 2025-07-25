@@ -138,27 +138,27 @@ import "./Gallary.css";
 
 const images = [
   {
-    src: "/Biswas-English-Academy/images/1.jpg",
+    src: "/images/1.jpg",
     title: "Image 1",
   },
   {
-    src: "/Biswas-English-Academy/images/2.jpg",
+    src: "/images/2.jpg",
     title: "Image 2",
   },
   {
-    src: "/Biswas-English-Academy/images/3.jpg",
+    src: "/images/3.jpg",
     title: "Image 3",
   },
   {
-    src: "/Biswas-English-Academy/images/4.jpg",
+    src: "/images/4.jpg",
     title: "Image 4",
   },
   {
-    src: "/Biswas-English-Academy/images/5.jpg",
+    src: "/images/5.jpg",
     title: "Image 5",
   },
   {
-    src: "/Biswas-English-Academy/images/6.jpg",
+    src: "/images/6.jpg",
     title: "Image 6",
   },
 ];
