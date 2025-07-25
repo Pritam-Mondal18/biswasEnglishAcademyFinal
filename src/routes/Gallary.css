@@ -1,0 +1,246 @@
+/*.gallary-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 100px;
+  width: 100vw;
+  min-height: 100vh;
+  background: #ced8ff;
+  transition: 0.5s;
+}
+.lg-react-element {
+  column-count: 3;
+  column-gap: 10px;
+}
+img.gallary {
+  max-width: 100%;
+  display: block;
+  padding: 5px 0;
+  border-radius: 20px;
+  transition: transform 0.2s;
+}
+img.gallary:hover {
+  filter: opacity(0.8);
+  transform: scale(1.01);
+}
+.lg-react-element {
+  padding: 10px;
+}
+@media (max-width: 821px) {
+  .gallary-container {
+    width: 154vw;
+  }
+}
+@media (max-width: 431px) {
+  .gallary-container {
+    width: 208vw;
+  }
+}
+@media (max-width: 415px) {
+  .gallary-container {
+    width: 211vw;
+  }
+}
+@media (max-width: 391px) {
+  .gallary-container {
+    width: 254vw;
+  }
+}
+@media (max-width: 321px) {
+  .gallary-container {
+    width: 270vw;
+  }
+}
+/*-------gpt------------*/
+/* .gallary-container {
+  background: #ced8ff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+} */
+
+.gallary-container {
+  background: #ced8ff;
+  padding: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+  .gallery-image {
+    height: 300px;
+  }
+}
+
+/* Small Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .gallery-image {
+    height: 260px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-image {
+    height: 220px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 767px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+  .gallery-image {
+    height: 200px;
+  }
+}
+
+/*-------gpt------------*/
+/*
+.gallary-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 100px;
+  width: 100%;
+  min-height: 100vh;
+  background: #ced8ff;
+  transition: 0.5s;
+}
+
+.lg-react-element {
+  column-count: 3;
+  column-gap: 10px;
+  padding: 10px;
+}
+
+img.gallary {
+  max-width: 100%;
+  display: block;
+  padding: 5px 0;
+  border-radius: 20px;
+  transition: transform 0.2s;
+}
+
+img.gallary:hover {
+  filter: opacity(0.8);
+  transform: scale(1.01);
+}
+
+Responsive Styling
+large Desktop
+@media (min-width: 1440px) {
+  .gallary-container {
+    width: 100vw;
+    margin: 0 auto;
+  }
+
+  .custom-gallery .image-gallery-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+Small Desktop
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .gallary-container {
+    width: 103vw;
+  }
+  .lg-react-element {
+    column-count: 2;
+  }
+}
+Tablets
+@media (min-width: 768px) and (max-width: 1023px) {
+  .gallary-container {
+    width: 179vw;
+    text-align: center;
+  }
+  .lg-react-element {
+    column-count: 2;
+  }
+}
+Mobile
+@media (max-width: 713px) {
+  .gallary-container {
+    width: 215vw;
+  }
+}
+@media (max-width: 691px) {
+  .gallary-container {
+    width: 220vw;
+  }
+}
+@media (max-width: 541px) {
+  .gallary-container {
+    width: 254vw;
+  }
+  .lg-react-element {
+    column-count: 1;
+  }
+}
+
+@media (max-width: 431px) {
+  .gallary-container {
+    width: 254vw;
+  }
+  .lg-react-element {
+    column-count: 1;
+  }
+}
+
+@media (max-width: 321px) {
+  .gallary-container {
+    width: 272vw;
+  }
+  .lg-react-element {
+    column-count: 1;
+  }
+}
+*/
