@@ -27,11 +27,7 @@ const Footer = ({ homeRef, aboutRef, contactRef, gallaryRef, servicesRef }) => {
     <>
       <div className="footer-container">
         <div className="social-links-container">
-          <img
-            src="/Biswas-English-Academy/images/logoFinal.png"
-            alt="Logo"
-            className="logo"
-          />
+          <img src="/images/logoFinal.png" alt="Logo" className="logo" />
           <h4>
             <b>
               <i>Biswas English Academy</i>
