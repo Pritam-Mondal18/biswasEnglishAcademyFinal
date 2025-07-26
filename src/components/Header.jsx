@@ -205,6 +205,7 @@ chat gpt
 
 // Header.jsx
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./Header.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp, IoPersonCircle } from "react-icons/io5";
@@ -284,11 +285,29 @@ const Header = ({
 
       <h3 className="heading">Biswas English Academy</h3>
 
-      <ul
-        className={`menu-items ${
-          showMenu ? "menu-mobile fade-in" : "menu-web"
-        }`}
-      >
+      <AnimatePresence>
+        {showMenu && (
+          <motion.ul
+            className="menu-items menu-mobile"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            {sections.map(({ ref, name }) => (
+              <li
+                key={name}
+                className={activeSection === name ? "active" : ""}
+                onClick={() => scrollToElement(ref, name)}
+              >
+                {name.charAt(0).toUpperCase() + name.slice(1)}
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+
+      <ul className="menu-items menu-web">
         {sections.map(({ ref, name }) => (
           <li
             key={name}

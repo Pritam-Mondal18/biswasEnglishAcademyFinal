@@ -242,13 +242,13 @@ Mobile Responsive Styling
 /* gpt */
 
 /* for form section */
+/*
 .closeForm {
   color: black;
   font-size: 30px;
   margin-left: auto;
   cursor: pointer;
 }
-/* Form section end */
 
 .banner-img {
   margin: 0;
@@ -328,12 +328,14 @@ Mobile Responsive Styling
 
 /* Responsive Styling */
 /*large Desktop*/
+/*
 @media (min-width: 1440px){
   .home-container{
     width: 100vw;
   }
 }
 /* Medium Desktop */
+/*
 @media (min-width: 1280px) and (max-width: 1439px) {
   .home-container {
     display: flex;
@@ -373,6 +375,7 @@ Mobile Responsive Styling
   }
 }
 /* Small Desktop */
+/*
 @media (min-width: 1024px) and (max-width: 1279px) {
   .home-container {
     display: flex;
@@ -411,6 +414,7 @@ Mobile Responsive Styling
   }
 }
 /* Tablets */
+/*
 @media (min-width: 768px) and (max-width: 1023px) {
   .home-container {
     width: 179vw;
@@ -447,7 +451,8 @@ Mobile Responsive Styling
     text-align: center;
   }
 } */
- /*Mobile*/
+/*Mobile*/
+/*
 @media (max-width: 713px) {
   .home-container {
     width: 215vw;
@@ -554,7 +559,7 @@ Mobile Responsive Styling
 }
 
 /* Modal styling */
-
+/*
 .ReactModal__Content {
   margin: 100px;
   width: 50vw;
@@ -571,9 +576,9 @@ Mobile Responsive Styling
   cursor: pointer;
   z-index: 1;
   border-radius: 10px;
-  padding: 20px; */
+  padding: 20px; 
 }
-
+/*
 .contact-from-info {
   display: flex;
   flex-direction: column;
@@ -634,7 +639,7 @@ form button:hover {
     height: 50vh;
   }
 }*/
-
+/*
 @media (max-width: 551px) {
   .ReactModal__Content {
     width: 100vw;
@@ -666,4 +671,165 @@ form button:hover {
     width: 100vw;
     height: auto;
   }
+}
+*/
+/*======================
+chatgpt
+======================*/
+
+/* Home.css */
+/* Home.css */
+
+/* Home.css */
+
+/* Home.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.home-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  /* background-color: #fff; */
+  background: #ced8ff;
+  color: #111827;
+  overflow-x: hidden;
+}
+
+/* Banner */
+.banner-wrapper {
+  padding-top: 95px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Content & Layout */
+.home-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  /* background-color: red; */
+}
+
+.home-content {
+  text-align: center;
+  max-width: 700px;
+}
+
+.home-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #ec4899, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.home-subtext {
+  font-size: 1.125rem;
+  color: #374151;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  background-color: #111827;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #1f2937;
+}
+
+.home-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-indicator {
+  margin-top: 2rem;
+  font-size: 2rem;
+  color: #6b7280;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .home-content-wrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+  }
+
+  .home-content {
+    text-align: left;
+  }
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+body.dark-mode .home-heading {
+  background: linear-gradient(to right, #f472b6, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .home-subtext {
+  color: #cbd5e1;
+}
+
+body.dark-mode .cta-button {
+  background-color: #1e40af;
+  color: #fff;
+}
+
+body.dark-mode .cta-button:hover {
+  background-color: #1d4ed8;
+}
+
+body.dark-mode .scroll-indicator {
+  color: #93c5fd;
 }
