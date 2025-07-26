@@ -286,6 +286,7 @@
    Footer Section Styles
    ============================ */
 .footer-container {
+  margin-top: -50px;
   background-color: #101522;
   color: #fff;
   width: 100%;

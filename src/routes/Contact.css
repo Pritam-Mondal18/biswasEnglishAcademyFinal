@@ -964,6 +964,9 @@ form button {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 24px;
+  padding-bottom: 0; /* Remove extra padding */
+  margin-bottom: 0; /* Ensure no margin */
+  background-color: transparent; /* Avoid black background */
 }
 
 .contact-Social {
