@@ -1,4 +1,4 @@
-.services-container {
+/* .services-container {
   padding-top: 90px;
   width: 100vw;
   min-height: 100vh;
@@ -34,27 +34,26 @@
 }
 
 /* Responsive View */
-/*large Desktop*/
+/*large Desktop
 @media (min-width: 1440px) {
   .services-container {
-    /* background-color: red; */
     width: 100vw;
   }
 }
-/* Small Desktop */
+/* Small Desktop 
 @media (min-width: 1024px) and (max-width: 1279px) {
   .services-container {
     width: 103vw;
   }
 }
-/* Tablets */
+/* Tablets 
 @media (min-width: 768px) and (max-width: 1023px) {
   .services-container {
     width: 179vw;
     text-align: center;
   }
 }
-/*Mobile*/
+/*Mobile
 @media (max-width: 713px) {
   .services-container {
     width: 215vw;
@@ -84,10 +83,116 @@
   .services-container {
     width: 254vw;
   }
-} */
+} 
 @media (max-width: 321px) {
   .services-container {
-    /* background-color: aqua; */
     width: 270vw;
   }
+} */
+/* ================================
+chat gpt
+================================ */
+/* Base styles */
+.services-container {
+  padding: 2rem 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Section heading */
+.section-heading h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--heading-color);
+}
+
+/* Grid */
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .service-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section-heading h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Service box */
+.service-box {
+  background-color: var(--box-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+}
+
+/* Content inside box */
+.box-content h2 {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-bottom: 0.2rem;
+}
+
+.box-content h4 {
+  font-size: 1rem;
+  color: var(--subtext-color);
+  margin-bottom: 1rem;
+}
+
+.box-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.box-content ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.icon {
+  color: var(--icon-color);
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+/* Light Theme Variables */
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --heading-color: #2c3e50;
+  --subtext-color: #777;
+  --box-bg: #fff;
+  --accent-color: #007acc;
+  --icon-color: #2ecc71;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e4e4e4;
+  --heading-color: #f0f0f0;
+  --subtext-color: #aaaaaa;
+  --box-bg: #1e1e1e;
+  --accent-color: #4da8ff;
+  --icon-color: #2ecc71;
 }

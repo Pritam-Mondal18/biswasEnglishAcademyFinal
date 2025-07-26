@@ -684,6 +684,7 @@ chatgpt
 
 /* Home.css */
 
+/* Home Section Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -705,9 +706,9 @@ body {
   padding: 0;
   margin: 0;
   background: #ced8ff;
-  /* background-color: #fff; */
   color: #111827;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Banner */
@@ -734,7 +735,6 @@ body {
   width: 100%;
   max-width: 1200px;
   box-sizing: border-box;
-  /* background-color: red; */
 }
 
 .home-content {
@@ -785,12 +785,6 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.scroll-indicator {
-  margin-top: 2rem;
-  font-size: 2rem;
-  color: #6b7280;
-}
-
 /* Responsive Design */
 @media (min-width: 768px) {
   .home-content-wrapper {
@@ -806,30 +800,26 @@ body {
 }
 
 /* Dark Mode */
-body.dark-mode {
+[data-theme="dark"] .home-container {
   background-color: #0f172a;
   color: #f1f5f9;
 }
 
-body.dark-mode .home-heading {
+[data-theme="dark"] .home-heading {
   background: linear-gradient(to right, #f472b6, #818cf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-body.dark-mode .home-subtext {
+[data-theme="dark"] .home-subtext {
   color: #cbd5e1;
 }
 
-body.dark-mode .cta-button {
+[data-theme="dark"] .cta-button {
   background-color: #1e40af;
   color: #fff;
 }
 
-body.dark-mode .cta-button:hover {
+[data-theme="dark"] .cta-button:hover {
   background-color: #1d4ed8;
-}
-
-body.dark-mode .scroll-indicator {
-  color: #93c5fd;
 }
