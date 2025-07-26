@@ -1109,3 +1109,41 @@ form button {
     padding: 8px;
   }
 }
+/* ========== Dark Theme Styles for Contact Section ========== */
+[data-theme="dark"] .contact-container {
+  background: #1e293b;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .detailes {
+  background: #334155;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .detailes-icon .icon {
+  color: #f472b6;
+}
+
+[data-theme="dark"] .detailes-icon .icon:hover {
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .contact-from-info h2 {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] form input,
+[data-theme="dark"] form textarea {
+  background-color: #475569;
+  color: #f1f5f9;
+  border: 1px solid #64748b;
+}
+
+[data-theme="dark"] form button {
+  background-color: #dc2626;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .map-embed iframe {
+  filter: grayscale(1) brightness(0.8) contrast(1.2);
+}
