@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { Link as ScrollLink } from "react-scroll";
-import { NavLink as RouterNavLink } from "react-router-dom";
-// import { NavLink as ScrollNavLink } from "react-scroll";
-import { CiRoute } from "react-icons/ci";
+import { motion } from "framer-motion";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaYoutube } from "react-icons/fa6";
@@ -12,21 +9,21 @@ import { FaPhoneVolume } from "react-icons/fa6";
 import { TfiEmail } from "react-icons/tfi";
 
 import "./Footer.css";
-const Footer = ({ homeRef, aboutRef, contactRef, gallaryRef, servicesRef }) => {
+
+const Footer = () => {
   const [showMenu, setShowMenu] = useState(false);
-  // Scroll to the referenced section
-  const scrollToElement = (elementRef) => {
-    if (elementRef?.current) {
-      window.scrollTo({
-        top: elementRef.current.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
+
   return (
     <>
       <div className="footer-container">
-        <div className="social-links-container">
+        {/* SOCIAL LINKS */}
+        <motion.div
+          className="social-links-container"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
           <img src="/images/logoFinal.png" alt="Logo" className="logo" />
           <h4>
             <b>
@@ -75,20 +72,24 @@ const Footer = ({ homeRef, aboutRef, contactRef, gallaryRef, servicesRef }) => {
               </a>
             </div>
           </div>
-        </div>
-        <div className="contact-details">
+        </motion.div>
+
+        {/* CONTACT DETAILS */}
+        <motion.div
+          className="contact-details"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
           <h4>
             <i>ADDRESS</i>
           </h4>
-
           <div className="adress-details">
             <div className="icon-map">
               <GrMap />
             </div>
-            <p>
-              80 Laxmipally, Rishra, Hooghly, WB, India, Rishra, India, West
-              Bengal
-            </p>
+            <p>80 Laxmipally, Rishra, Hooghly, WB, India</p>
           </div>
           <div className="contact-number-details">
             <div className="icon-map">
@@ -102,8 +103,16 @@ const Footer = ({ homeRef, aboutRef, contactRef, gallaryRef, servicesRef }) => {
             </div>
             <p>biswasenglishacademy@gmail.com</p>
           </div>
-        </div>
-        <div className="courses">
+        </motion.div>
+
+        {/* SERVICES */}
+        <motion.div
+          className="courses"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h4>
             <i>SERVICES</i>
           </h4>
@@ -117,11 +126,19 @@ const Footer = ({ homeRef, aboutRef, contactRef, gallaryRef, servicesRef }) => {
               <li>WBCHSE Board (class-11 to class-12)</li>
             </ul>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div className="end-footer">
+
+      {/* FOOTER END LINE */}
+      <motion.div
+        className="end-footer"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        viewport={{ once: true }}
+      >
         <p>Copyright © 2024 biswasenglishacademy.com</p>
-      </div>
+      </motion.div>
     </>
   );
 };
