@@ -704,8 +704,8 @@ body {
   justify-content: center;
   padding: 0;
   margin: 0;
-  /* background-color: #fff; */
   background: #ced8ff;
+  /* background-color: #fff; */
   color: #111827;
   overflow-x: hidden;
 }

@@ -210,8 +210,8 @@
 chat gpt
 ===================================================*/
 
-// Home.jsx
-// Home.jsx
+// Home.jsx;
+// Home.jsx;
 import React from "react";
 import { motion } from "framer-motion";
 import "./Home.css";
