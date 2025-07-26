@@ -121,13 +121,24 @@ function Contact({ contactRef }) {
             </div>
           </div>
 
-          <div className="contact-Map">
+          {/* <div className="contact-Map">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.1669492879546!2d88.3373443!3d22.7220353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89b3815689f15%3A0x8ffa65a5fb97e85c!2sBiswas%20English%20Academy!5e0!3m2!1sen!2sin!4v1730216544062!5m2!1sen!2sin"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
+          </div> */}
+          <div className="contact-Map">
+            <div className="map-embed">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.1669492879546!2d88.3373443!3d22.7220353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89b3815689f15%3A0x8ffa65a5fb97e85c!2sBiswas%20English%20Academy!5e0!3m2!1sen!2sin!4v1730216544062!5m2!1sen!2sin"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Biswas English Academy Location"
+              />
+            </div>
           </div>
         </div>
         <div className="contact-from">
