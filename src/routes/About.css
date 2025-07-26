@@ -176,7 +176,7 @@
 }
 
 -------------gpt----------------- */
-
+/*
 .about-container {
   display: flex;
   flex-direction: row;
@@ -214,13 +214,13 @@
 }
 
 /* Responsive Styling */
-/*large Desktop*/
+/*large Desktop
 @media (min-width: 1440px) {
   .about-container {
     width: 100vw;
   }
 }
-/* Medium Desktop */
+/* Medium Desktop 
 @media (min-width: 1280px) and (max-width: 1439px) {
   .about-container {
     width: 100vw;
@@ -248,7 +248,7 @@
     font-size: 18px;
   }
 }
-/* Small Desktop */
+/* Small Desktop 
 @media (min-width: 1024px) and (max-width: 1279px) {
   .about-container {
     width: 103vw;
@@ -276,7 +276,7 @@
     font-size: 18px;
   }
 }
-/* Tablets */
+/* Tablets 
 @media (min-width: 768px) and (max-width: 1023px) {
   .about-container {
     width: 179vw;
@@ -309,7 +309,7 @@
     text-align: center;
   }
 } */
-/*Mobile*/
+/*Mobile
 @media (max-width: 713px) {
   .about-container {
     width: 215vw;
@@ -319,16 +319,12 @@
   }
   .about-paragraph {
     width: 200vw;
-    /* background-color: saddlebrown; */
   }
   .paragraph.about {
-    /* background-color: blue; */
     font-size: 30px;
   }
   .about-img {
     width: 200vw;
-    /* background-color: red; */
-    /* height: auto; */
   }
 }
 @media (max-width: 691px) {
@@ -417,5 +413,85 @@
 
   .paragraph.about {
     font-size: 10px;
+  }
+}
+*/
+/* ============================================
+chatgpt
+=============================================== */
+/* About Section Styles */
+.about-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 20px;
+  width: 100%;
+  background: #ced8ff;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.about-img,
+.about-paragraph {
+  flex: 1 1 45%;
+  max-width: 48%;
+  height: auto;
+}
+
+.about-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roadmap {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.paragraph.about {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+/* Responsive Styling */
+
+@media (max-width: 1024px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  .about-img,
+  .about-paragraph {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .paragraph.about {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .paragraph.about {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .paragraph.about {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .paragraph.about {
+    font-size: 13px;
   }
 }
