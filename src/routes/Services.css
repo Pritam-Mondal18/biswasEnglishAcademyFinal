@@ -1,103 +1,10 @@
-/* .services-container {
-  padding-top: 90px;
-  width: 100vw;
-  min-height: 100vh;
-  background: #ced8ff;
-  transition: 0.5s;
-}
-.sub-heading-servicePage {
-  padding: 10px;
-  text-decoration: 2px underline wavy black;
-}
-.service-box-container {
-  margin: 5px 5px 0 5px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 15px;
-  justify-content: center;
-}
-.service-box {
-  border: 5px solid black;
-  border-radius: 5px;
-  box-shadow: 5px 5px 10px black;
-  background-color: rgb(31, 198, 148);
-}
-.service-box:hover {
-  cursor: pointer;
-  background-color: rgb(92, 224, 184);
-}
-.service-box-container .service-box .box-container {
-  text-align: center;
-}
-.service-box-container .service-box .box-container ul li {
-  list-style: none;
-}
-
-/* Responsive View */
-/*large Desktop
-@media (min-width: 1440px) {
-  .services-container {
-    width: 100vw;
-  }
-}
-/* Small Desktop 
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .services-container {
-    width: 103vw;
-  }
-}
-/* Tablets 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .services-container {
-    width: 179vw;
-    text-align: center;
-  }
-}
-/*Mobile
-@media (max-width: 713px) {
-  .services-container {
-    width: 215vw;
-  }
-}
-@media (max-width: 691px) {
-  .services-container {
-    width: 220vw;
-  }
-}
-@media (max-width: 541px) {
-  .services-container {
-    width: 254vw;
-  }
-}
-@media (max-width: 431px) {
-  .services-container {
-    width: 254vw;
-  }
-}
-/* @media (max-width: 415px) {
-  .services-container {
-    width: 255vw;
-  }
-} */
-/* @media (max-width: 391px) {
-  .services-container {
-    width: 254vw;
-  }
-} 
-@media (max-width: 321px) {
-  .services-container {
-    width: 270vw;
-  }
-} */
-/* ================================
-chat gpt
-================================ */
 /* Base styles */
 .services-container {
   padding: 2rem 1rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-color);
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
+  background-color: #ced8ff;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
