@@ -1,8 +1,8 @@
-.footer-container {
-  background-color: #101522; /* Dark background */
+/*.footer-container {
+  background-color: #101522; 
   width: 100%;
   padding: 50px;
-  color: #fff; /* White text */
+  color: #fff;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -147,7 +147,7 @@
 }
 
 /* Responsive Styling */
-/*large Desktop*/
+/*large Desktop
 @media (min-width: 1440px) {
   .footer-container {
     width: 100vw;
@@ -156,7 +156,7 @@
     width: 100vw;
   }
 }
-/* Small Desktop */
+/* Small Desktop 
 @media (min-width: 1024px) and (max-width: 1279px) {
   .footer-container {
     width: 103vw;
@@ -177,7 +177,7 @@
     width: 80px;
   }
 }
-/* Tablets */
+/* Tablets 
 @media (min-width: 768px) and (max-width: 1023px) {
   .footer-container {
     width: 179vw;
@@ -242,7 +242,6 @@
 
 @media (max-width: 431px) {
   .footer-container {
-    /* width: 208%; */
     width: 255vw;
     height: 211vh;
     flex-direction: column;
@@ -280,5 +279,217 @@
 
   .social-links-container .logo {
     width: 40px;
+  }
+}
+*/
+/* ============================
+   Footer Section Styles
+   ============================ */
+.footer-container {
+  background-color: #101522;
+  color: #fff;
+  width: 100%;
+  padding: 50px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-links-container,
+.contact-details,
+.courses {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.social-links-container .logo {
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.social-links-container b {
+  font-size: 24px;
+}
+
+.social-links-container p {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: start;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 36px;
+}
+
+.social-links .icon {
+  font-size: 40px; /* Equal to email/contact icon */
+  transition: color 0.3s ease;
+  color: deeppink;
+  cursor: pointer;
+}
+
+.social-links .icon:hover {
+  color: darkblue;
+}
+
+.facebook .icon:hover {
+  color: #1877f2;
+}
+
+.whatsapp .icon:hover {
+  color: #25d366;
+}
+
+.insta .icon:hover {
+  color: #e377ae;
+}
+
+.youtube .icon:hover {
+  color: #ff0000;
+}
+
+.contact-details h4,
+.courses h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.adress-details,
+.contact-number-details,
+.email-details {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.icon-map {
+  font-size: 40px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icon-map:hover {
+  color: pink;
+}
+
+.email-details p {
+  word-break: break-word;
+}
+
+.course ul {
+  list-style: none;
+  padding: 0;
+}
+
+.course ul li {
+  padding: 8px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.course ul li:hover {
+  color: pink;
+}
+
+.end-footer {
+  background-color: #1d263d;
+  color: burlywood;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================
+     Dark Mode Support
+     ============================ */
+
+body[data-theme="dark"] .footer-container {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+body[data-theme="dark"] .end-footer {
+  background-color: #1e293b;
+  color: #e0e7ff;
+}
+
+body[data-theme="dark"] .course ul li:hover,
+body[data-theme="dark"] .icon-map:hover,
+body[data-theme="dark"] .social-links .icon:hover {
+  color: #f472b6;
+}
+
+/* ============================
+     Responsive Design
+     ============================ */
+
+@media screen and (max-width: 1024px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .social-links-container .logo {
+    width: 80px;
+  }
+
+  .footer-container p,
+  .end-footer p {
+    font-size: 14px;
+  }
+
+  .social-links {
+    font-size: 36px;
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .social-links-container .logo {
+    width: 60px;
+  }
+
+  .footer-container,
+  .end-footer {
+    padding: 30px 10px;
+  }
+
+  .social-links {
+    gap: 12px;
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .social-links-container .logo {
+    width: 50px;
+  }
+
+  .icon-map {
+    font-size: 32px;
+  }
+
+  .adress-details p,
+  .contact-number-details p,
+  .email-details p {
+    font-size: 14px;
   }
 }
