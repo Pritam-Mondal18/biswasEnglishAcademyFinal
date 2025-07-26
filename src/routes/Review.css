@@ -10,67 +10,42 @@
 } */
 
 /*------------gpt------------*/
-
-.review-container {
-  padding-top: 94px;
+.review-section {
+  padding-top: 90px;
   width: 100%;
   min-height: 80vh;
-  background: #ced8ff;
-  transition: 0.5s;
+  background-color: #ced8ff;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.5s ease;
+  box-sizing: border-box;
+  position: relative;
 }
 
-/* Mobile Responsive Styling */
-/*large Desktop*/
-@media (min-width: 1440px) {
-  .review-container {
-    width: 100vw;
-  }
-}
-/* Small Desktop */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .review-container {
-    width: 103vw;
-    padding-top: 80px;
-  }
-}
-/* Tablets */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .review-container {
-    width: 178vw;
-    text-align: center;
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .review-section {
     padding-top: 70px;
   }
 }
-/*Mobile*/
-@media (max-width: 713px) {
-  .review-container {
-    width: 215vw;
-  }
-}
-@media (max-width: 691px) {
-  .review-container {
-    width: 220vw;
-  }
-}
-@media (max-width: 541px) {
-  .review-container {
-    width: 254vw;
+
+@media (max-width: 768px) {
+  .review-section {
     padding-top: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
-@media (max-width: 431px) {
-  .review-container {
+@media (max-width: 480px) {
+  .review-section {
     padding-top: 50px;
   }
 }
 
-@media (max-width: 321px) {
-  .review-container {
-    width: 272vw;
+@media (max-width: 320px) {
+  .review-section {
     padding-top: 40px;
   }
 }
