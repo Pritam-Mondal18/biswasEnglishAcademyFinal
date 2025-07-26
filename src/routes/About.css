@@ -430,6 +430,7 @@ chatgpt
   background: #ced8ff;
   flex-wrap: wrap;
   gap: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .about-img,
@@ -456,10 +457,19 @@ chatgpt
   font-size: 18px;
   line-height: 1.6;
   color: #1f2937;
+  transition: color 0.3s ease;
+}
+
+/* Dark Theme Styles */
+[data-theme="dark"] .about-container {
+  background: #1e293b;
+}
+
+[data-theme="dark"] .paragraph.about {
+  color: #f1f5f9;
 }
 
 /* Responsive Styling */
-
 @media (max-width: 1024px) {
   .about-container {
     flex-direction: column;
