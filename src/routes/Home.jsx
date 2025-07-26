@@ -211,14 +211,99 @@ chat gpt
 ===================================================*/
 
 // Home.jsx;
-// Home.jsx;
+// // Home.jsx;
+// import React from "react";
+// import { motion } from "framer-motion";
+// import "./Home.css";
+
+// const Home = ({ homeRef }) => {
+//   return (
+//     <section ref={homeRef} className="home-container">
+//       <div className="banner-wrapper">
+//         <img
+//           src="/images/banner.jpg"
+//           alt="Biswas English Academy Banner"
+//           className="banner-img"
+//         />
+//       </div>
+
+//       <div className="home-content-wrapper">
+//         <motion.div
+//           className="home-content"
+//           initial={{ opacity: 0, y: 50 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8, ease: "easeOut" }}
+//         >
+//           <motion.h1
+//             className="home-heading"
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ delay: 0.2, duration: 0.6 }}
+//           >
+//             Welcome to Biswas English Academy
+//           </motion.h1>
+//           <motion.p
+//             className="home-subtext"
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ delay: 0.4, duration: 0.6 }}
+//           >
+//             Elevate your English skills with expert guidance and personalized
+//             instruction.
+//           </motion.p>
+//           <motion.a
+//             href="#contact"
+//             className="cta-button"
+//             whileHover={{ scale: 1.05 }}
+//             whileTap={{ scale: 0.95 }}
+//             transition={{ type: "spring", stiffness: 300 }}
+//           >
+//             Get Started
+//           </motion.a>
+//         </motion.div>
+
+//         <motion.div
+//           className="home-image-wrapper"
+//           initial={{ opacity: 0, scale: 0.9 }}
+//           animate={{ opacity: 1, scale: 1 }}
+//           transition={{ delay: 0.3, duration: 0.8 }}
+//         >
+//           <img
+//             src="/images/pm1.jpg"
+//             alt="Students learning English"
+//             className="home-image"
+//             loading="lazy"
+//           />
+//         </motion.div>
+//       </div>
+
+//       <motion.div
+//         className="scroll-indicator"
+//         initial={{ opacity: 0 }}
+//         animate={{ opacity: 1 }}
+//         transition={{
+//           delay: 1.2,
+//           duration: 0.5,
+//           repeat: Infinity,
+//           repeatType: "reverse",
+//         }}
+//       >
+//         ↓
+//       </motion.div>
+//     </section>
+//   );
+// };
+
+// export default Home;
+
 import React from "react";
 import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 import "./Home.css";
 
-const Home = () => {
+const Home = ({ homeRef }) => {
   return (
-    <section className="home-container" id="home">
+    <section ref={homeRef} className="home-container">
       <div className="banner-wrapper">
         <img
           src="/images/banner.jpg"
@@ -242,15 +327,40 @@ const Home = () => {
           >
             Welcome to Biswas English Academy
           </motion.h1>
-          <motion.p
-            className="home-subtext"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            Elevate your English skills with expert guidance and personalized
-            instruction.
-          </motion.p>
+
+          {/* Fixed-height container to prevent layout shift */}
+          {/* <div className="typing-wrapper">
+            <TypeAnimation
+              sequence={[
+                "Elevate your English skills with expert guidance and personalized instruction.",
+                2000,
+                "",
+                1000,
+              ]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+              className="home-subtext typing-text"
+            />
+          </div> */}
+          <div className="typing-wrapper">
+            <span className="home-subtext">
+              Elevate your English skills with{" "}
+              <TypeAnimation
+                sequence={[
+                  "expert guidance and personalized instruction.",
+                  2000,
+                  "",
+                  1000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+                className="typing-text"
+              />
+            </span>
+          </div>
+
           <motion.a
             href="#contact"
             className="cta-button"
