@@ -989,25 +989,29 @@ form button {
 
 .detailes-icon {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 16px;
   padding: 16px;
 }
-
-.icon {
-  font-size: 28px;
+.detailes .icon {
+  cursor: pointer;
+  color: deeppink;
+  font-size: 32px;
+  transition: color 0.3s ease;
+}
+.detailes-icon .icon {
+  font-size: 32px;
   color: deeppink;
   transition: color 0.3s ease;
 }
-
 .icon:hover {
-  color: darkblue;
+  color: #3a8af3;
 }
 
 .detailes-icon .icon:hover:nth-child(1) {
   color: #1877f2;
 }
-.detailes-icon .icon:hover:nth-child(2) {
+.detailes-icon .whatsapp:hover:nth-child(2) {
   color: #25d366;
 }
 .detailes-icon .icon:hover:nth-child(3) {
@@ -1124,11 +1128,24 @@ form button {
 }
 
 [data-theme="dark"] .detailes-icon .icon {
-  color: #f472b6;
+  color: deeppink;
 }
 
-[data-theme="dark"] .detailes-icon .icon:hover {
-  color: #93c5fd;
+/* Keep icon hover colors same in dark mode */
+[data-theme="dark"] .icon.facebook:hover {
+  color: #1877f2;
+}
+
+[data-theme="dark"] .icon.whatsapp:hover {
+  color: #25d366;
+}
+
+[data-theme="dark"] .icon.insta:hover {
+  color: #e377ae;
+}
+
+[data-theme="dark"] .icon.youtube:hover {
+  color: #ff0000;
 }
 
 [data-theme="dark"] .contact-from-info h2 {

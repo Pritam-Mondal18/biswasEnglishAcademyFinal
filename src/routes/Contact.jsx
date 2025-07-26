@@ -545,31 +545,35 @@ function Contact({ contactRef }) {
           >
             <a
               href="https://www.facebook.com/AtanuBiswasCC/"
+              className="icon facebook"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaFacebook className="icon" />
+              <FaFacebook />
             </a>
             <a
               href="https://api.whatsapp.com/send?phone=7059904029&text=Hello!"
+              className="icon whatsapp"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IoLogoWhatsapp className="icon" />
+              <IoLogoWhatsapp />
             </a>
             <a
               href="https://www.instagram.com/biswas_english_academy/"
+              className="icon insta"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaInstagram className="icon" />
+              <FaInstagram />
             </a>
             <a
               href="https://www.youtube.com/@Biswas_English_Academy"
+              className="icon youtube"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaYoutube className="icon" />
+              <FaYoutube />
             </a>
           </motion.div>
         </div>
