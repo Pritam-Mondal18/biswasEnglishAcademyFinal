@@ -295,7 +295,8 @@ chat gpt
 // };
 
 // export default Home;
-
+// ============================================================================
+/*
 import React from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
@@ -328,8 +329,9 @@ const Home = ({ homeRef }) => {
             Welcome to Biswas English Academy
           </motion.h1>
 
-          {/* Fixed-height container to prevent layout shift */}
-          {/* <div className="typing-wrapper">
+          {/* Fixed-height container to prevent layout shift */
+{
+  /* <div className="typing-wrapper">
             <TypeAnimation
               sequence={[
                 "Elevate your English skills with expert guidance and personalized instruction.",
@@ -342,7 +344,8 @@ const Home = ({ homeRef }) => {
               repeat={Infinity}
               className="home-subtext typing-text"
             />
-          </div> */}
+          </div> */
+} /*
           <div className="typing-wrapper">
             <span className="home-subtext">
               Elevate your English skills with{" "}
@@ -400,6 +403,251 @@ const Home = ({ homeRef }) => {
       >
         ↓
       </motion.div>
+    </section>
+  );
+};
+
+export default Home;
+*/
+/*
+import React from "react";
+import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
+import "./Home.css";
+
+const Home = ({ homeRef }) => {
+  return (
+    <section ref={homeRef} className="home-container">
+      <div className="banner-wrapper">
+        <img
+          src="/images/banner.jpg"
+          alt="Biswas English Academy Banner"
+          className="banner-img"
+        />
+      </div>
+
+      <div className="home-content-wrapper">
+        <motion.div
+          className="home-content"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.h1
+            className="home-heading"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Welcome to Biswas English Academy
+          </motion.h1>
+
+          {/* 👇 Side-by-side layout for static + animated text 
+          <div className="typing-wrapper-row">
+            <span className="home-subtext fixed-line">
+              Elevate your English skills with&nbsp;
+            </span>
+            <span className="home-subtext typing-text">
+              <TypeAnimation
+                sequence={[
+                  "expert guidance and personalized instruction.",
+                  2000,
+                  "",
+                  1000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+            </span>
+          </div>
+
+          <motion.a
+            href="#contact"
+            className="cta-button"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            Get Started
+          </motion.a>
+        </motion.div>
+
+        <motion.div
+          className="home-image-wrapper"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          <img
+            src="/images/pm1.jpg"
+            alt="Students learning English"
+            className="home-image"
+            loading="lazy"
+          />
+        </motion.div>
+      </div>
+
+      <motion.div
+        className="scroll-indicator"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          delay: 1.2,
+          duration: 0.5,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      >
+        ↓
+      </motion.div>
+    </section>
+  );
+};
+
+export default Home;
+*/
+
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
+import ScrollTrigger from "react-scroll-trigger";
+import CountUp from "react-countup";
+import { FaBusinessTime } from "react-icons/fa";
+import { PiStudentFill } from "react-icons/pi";
+import "./Home.css";
+
+const Home = ({ homeRef }) => {
+  const [counterStart, setcounterStart] = useState(false);
+
+  return (
+    <section ref={homeRef} className="home-container">
+      <div className="banner-wrapper">
+        <img
+          src="/images/banner.jpg"
+          alt="Biswas English Academy Banner"
+          className="banner-img"
+        />
+      </div>
+
+      <div className="home-content-wrapper">
+        <motion.div
+          className="home-content"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.h1
+            className="home-heading"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Welcome to Biswas English Academy
+          </motion.h1>
+
+          <div className="typing-wrapper-row">
+            <span className="fixed-line">
+              Elevate your English skills with&nbsp;
+            </span>
+            <span className="home-subtext">
+              <TypeAnimation
+                sequence={[
+                  "expert guidance and personalized instruction.",
+                  2000,
+                  "",
+                  1000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+                className="typing-text"
+              />
+            </span>
+          </div>
+
+          <motion.a
+            href="#contact"
+            className="cta-button"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            Get Started
+          </motion.a>
+        </motion.div>
+
+        <motion.div
+          className="home-image-wrapper"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          <img
+            src="/images/pm1.jpg"
+            alt="Students learning English"
+            className="home-image"
+            loading="lazy"
+          />
+        </motion.div>
+      </div>
+
+      {/* Animated Experience and Students Count */}
+      <span className="animation">
+        <motion.div
+          className="numberAnimation"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="animationIcon">
+            <FaBusinessTime className="icons" />
+          </div>
+          <ScrollTrigger
+            onEnter={() => setcounterStart(true)}
+            onExit={() => setcounterStart(false)}
+            threshold={0.1}
+          >
+            <div className="animationText">
+              <h2>Experience</h2>
+              <h4 className="scrollNumber">
+                {counterStart && (
+                  <CountUp start={0} end={11} duration={2} delay={0} />
+                )}
+                Years+
+              </h4>
+            </div>
+          </ScrollTrigger>
+        </motion.div>
+
+        <motion.div
+          className="numberAnimation"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <div className="animationIcon">
+            <PiStudentFill className="icons" />
+          </div>
+          <ScrollTrigger
+            onEnter={() => setcounterStart(true)}
+            onExit={() => setcounterStart(false)}
+            threshold={0.1}
+          >
+            <div className="animationText">
+              <h2>Students</h2>
+              <h4 className="scrollNumber">
+                {counterStart && (
+                  <CountUp start={0} end={15} duration={2} delay={0} />
+                )}
+                K+
+              </h4>
+            </div>
+          </ScrollTrigger>
+        </motion.div>
+      </span>
     </section>
   );
 };
