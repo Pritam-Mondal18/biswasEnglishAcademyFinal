@@ -74,7 +74,7 @@ const Header = ({
   return (
     <div className="navbar">
       <a href="/">
-        <img src="/images/Final-logo.jpg" alt="Logo" className="logo" />
+        <img src="/images/logoFinal.png" alt="Logo" className="logo" />
       </a>
 
       <h3 className="heading">Biswas English Academy</h3>
