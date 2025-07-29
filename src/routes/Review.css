@@ -37,3 +37,9 @@
     padding-top: 40px;
   }
 }
+/* -------------------------------
+   Dark Theme Overrides
+---------------------------------- */
+[data-theme="dark"] .review-section {
+  background: #1e293b;
+}
