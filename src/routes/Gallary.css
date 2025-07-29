@@ -55,3 +55,9 @@
     max-height: 200px;
   }
 }
+/* -------------------------------
+   Dark Theme Overrides
+---------------------------------- */
+[data-theme="dark"] .gallery-container {
+  background: #1e293b;
+}
