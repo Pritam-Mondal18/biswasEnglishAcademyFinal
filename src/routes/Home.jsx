@@ -43,17 +43,8 @@ const Home = ({ homeRef }) => {
       {/* Modal for the first-time form */}
       <Model
         isOpen={formVisible}
-        style={{
-          content: {
-            margin: "100px",
-            width: "50vw",
-            height: "70vh",
-            backgroundColor: "#ced8ff",
-            alignContent: "center",
-            cursor: "pointer",
-            zIndex: "1",
-          },
-        }}
+        className="custom-modal"
+        overlayClassName="modal-overlay"
       >
         <RxCross2 className="closeForm" onClick={() => setformVisible(false)} />
         <div className="contact-from-info">
@@ -78,7 +69,7 @@ const Home = ({ homeRef }) => {
                 type="tel"
                 placeholder="Contact Number"
                 name="contactnumber"
-                pattern="[0-9]{10}" // Adjust as needed for validation
+                pattern="[0-9]{10}"
                 required
               />
             </label>
@@ -99,7 +90,6 @@ const Home = ({ homeRef }) => {
           className="banner-img"
         />
       </div>
-
       <div className="home-content-wrapper">
         <motion.div
           className="home-content"
@@ -160,7 +150,6 @@ const Home = ({ homeRef }) => {
           />
         </motion.div>
       </div>
-
       {/* Animated Experience and Students Count */}
       <span className="animation">
         <motion.div
