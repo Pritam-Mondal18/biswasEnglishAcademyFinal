@@ -240,37 +240,9 @@ body {
   justify-content: center;
 }
 /* Dark Theme Support */
-[data-theme="dark"] .modal-content-wrapper {
-  background-color: #1e293b;
-  color: #f1f5f9;
-}
-[data-theme="dark"] .contact-from-info input,
-[data-theme="dark"] .contact-from-info textarea {
-  background-color: #334155;
-  color: #f40b13 !important;
-  border: 1px solid #475569;
-}
-
-[data-theme="dark"] .contact-from-info button {
-  background-color: #062f59;
-  color: #1e293b;
-  color: #fff;
-}
-
-[data-theme="dark"] .contact-from-info button:hover {
-  background-color: #db4678;
-  color: #fff;
-}
-
-[data-theme="dark"] .closeForm {
-  color: black;
-}
-[data-theme="dark"] .contact-from-info h2 {
-  color: black !important;
-}
 
 /* Responsive */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .modal-content-wrapper {
     padding: 1rem;
     width: 95%;
@@ -283,7 +255,7 @@ body {
   .contact-from-info button {
     font-size: 0.9rem;
   }
-}
+} */
 
 /* -------------------------------
    Dark Theme Overrides
@@ -308,6 +280,34 @@ body {
   background-color: #db4678;
   color: #111827;
 }
+[data-theme="dark"] .modal-content-wrapper {
+  background-color: #1e293b;
+  color: #f1f5f9;
+}
+[data-theme="dark"] .contact-from-info input,
+[data-theme="dark"] .contact-from-info textarea {
+  background-color: #334155;
+  border: 1px solid #475569;
+}
+
+[data-theme="dark"] .contact-from-info button {
+  background-color: #062f59;
+  color: #1e293b;
+  color: #fff;
+}
+
+[data-theme="dark"] .contact-from-info button:hover {
+  background-color: #db4678;
+  color: #fff;
+}
+
+[data-theme="dark"] .closeForm {
+  color: black;
+}
+[data-theme="dark"] .contact-from-info h2 {
+  color: black !important;
+}
+
 /* -------------------------------
    Responsive Styling
 ---------------------------------- */

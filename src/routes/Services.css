@@ -7,7 +7,6 @@
   background-color: #ced8ff;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 /* Section heading */
 .section-heading h1 {
   font-size: 2rem;
@@ -92,7 +91,9 @@
   --accent-color: #007acc;
   --icon-color: #2ecc71;
 }
-
+/* -------------------------------
+   Dark Theme Overrides
+---------------------------------- */
 /* Dark Theme Variables */
 [data-theme="dark"] {
   --bg-color: #121212;
@@ -102,4 +103,23 @@
   --box-bg: #1e1e1e;
   --accent-color: #4da8ff;
   --icon-color: #2ecc71;
+}
+/* Smooth color transition for headings */
+.section-heading h1 {
+  transition: color 0.4s ease;
+}
+
+/* Dark mode override */
+[data-theme="dark"] .services-container {
+  background: #1e293b;
+  color: #fff;
+}
+
+[data-theme="dark"] .section-heading h1 {
+  color: white;
+}
+
+[data-theme="dark"] .services-container {
+  background: #1e293b;
+  color: #f1f5f9;
 }
