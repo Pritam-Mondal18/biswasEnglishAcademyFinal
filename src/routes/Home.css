@@ -62,30 +62,6 @@ body {
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
 }
-
-/* Typing Section */
-/*
-.typing-wrapper-row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  font-size: 1.2rem;
-  margin-top: 10px;
-  justify-content: center;
-  gap: 5px;
-  text-align: center;
-}
-
-.home-subtext.fixed-line {
-  color: #5d00fe;
-  font-weight: bold;
-}
-
-.home-subtext.typing-text {
-  color: #ff00f2;
-  font-weight: 100;
-}
-*/
 .typing-wrapper-row {
   display: flex;
   align-items: center;
@@ -101,7 +77,7 @@ body {
 
 .typing-text {
   font-weight: 600;
-  color: #e91e63; /* pink shade */
+  color: #e91e63;
 }
 
 /* CTA Button */
@@ -169,7 +145,28 @@ body {
   font-weight: bold;
   color: #ec4899;
 }
-
+/* Dark Theme Styles */
+[data-theme="dark"] .home-container {
+  background: #1e293b;
+}
+[data-theme="dark"] .fixed-line {
+  color: #f1f5f9;
+}
+[data-theme="dark"] .animationIcon .icons {
+  color: #db4678;
+}
+[data-theme="dark"] .animationText h2 {
+  color: #f1f5f9;
+}
+[data-theme="dark"] .cta-button {
+  background-color: #f1f5f9;
+  color: #111827;
+}
+[data-theme="dark"] .cta-button:hover {
+  background-color: #db4678;
+  color: #111827;
+}
+/* Responsive Styling */
 /* Tablets */
 @media (min-width: 768px) {
   .home-content-wrapper {

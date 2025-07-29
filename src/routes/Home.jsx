@@ -57,10 +57,6 @@ const Home = ({ homeRef }) => {
       >
         <RxCross2 className="closeForm" onClick={() => setformVisible(false)} />
         <div className="contact-from-info">
-          {/* <RxCross2
-              className="closeForm"
-              onClick={() => setformVisible(false)}
-            /> */}
           <h2>Get In Touch</h2>
           <form ref={form} onSubmit={sendEmail}>
             <label>
