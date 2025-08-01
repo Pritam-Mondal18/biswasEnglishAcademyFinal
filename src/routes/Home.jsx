@@ -8,6 +8,8 @@ import { PiStudentFill } from "react-icons/pi";
 import Model from "react-modal";
 import { RxCross2 } from "react-icons/rx";
 import emailjs from "@emailjs/browser";
+import Footer from "../components/Footer"; // Adjust path based on where Footer.jsx is
+
 import "./Home.css";
 
 const Home = () => {
@@ -206,6 +208,7 @@ const Home = () => {
           </ScrollTrigger>
         </motion.div>
       </span>
+      <Footer />
     </section>
   );
 };
