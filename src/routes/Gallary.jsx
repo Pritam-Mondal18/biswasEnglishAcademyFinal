@@ -40,13 +40,12 @@ const imageVariants = {
   }),
 };
 
-const Gallary = ({ gallaryRef }) => {
+const Gallary = () => {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
   return (
     <motion.div
-      ref={gallaryRef}
       className="gallery-container"
       variants={containerVariants}
       initial="hidden"

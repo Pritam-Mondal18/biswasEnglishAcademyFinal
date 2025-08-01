@@ -160,7 +160,9 @@ form button {
   .icon {
     font-size: 24px;
   }
-
+  .contact-Map {
+    height: px;
+  }
   .contact-form {
     padding: 8px;
   }

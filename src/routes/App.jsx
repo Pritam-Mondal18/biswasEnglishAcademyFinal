@@ -1,49 +1,23 @@
-import React, { useRef } from "react";
-// import { Outlet } from "react-router-dom";
-import { useState } from "react";
-import Header from "../components/Header";
+// src/App.jsx
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
-import Contact from "./Contact";
-import Gallary from "./Gallary";
 import Services from "./Services";
-import Footer from "../components/Footer";
+import Gallary from "./Gallary";
 import Review from "./Review";
+import Contact from "./Contact";
 
 const App = () => {
-  const [theme, setTheme] = useState("light");
-  // Refs for each section
-  const homeRef = useRef(null);
-  const aboutRef = useRef(null);
-  const contactRef = useRef(null);
-  const gallaryRef = useRef(null);
-  const reviewRef = useRef(null);
-  const servicesRef = useRef(null);
-
   return (
-    <>
-      <div className={`container ${theme}`}>
-        <Header
-          homeRef={homeRef}
-          aboutRef={aboutRef}
-          servicesRef={servicesRef}
-          gallaryRef={gallaryRef}
-          contactRef={contactRef}
-          reviewRef={reviewRef}
-          theme={theme}
-          setTheme={setTheme}
-        />
-        {/* <Outlet /> */}
-      </div>
-      {/* <Header ref={homeRef} /> */}
-      <Home homeRef={homeRef} />
-      <About aboutRef={aboutRef} />
-      <Services servicesRef={servicesRef} />
-      <Gallary gallaryRef={gallaryRef} />
-      <Review reviewRef={reviewRef} />
-      <Contact contactRef={contactRef} />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/gallery" element={<Gallary />} />
+      <Route path="/review" element={<Review />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
   );
 };
 

@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./About.css";
 
-const About = ({ aboutRef }) => {
+const About = () => {
   return (
-    <section ref={aboutRef} className="about-container">
+    <section className="about-container">
       <motion.div
         className="about-img"
         initial={{ opacity: 0, x: -50 }}

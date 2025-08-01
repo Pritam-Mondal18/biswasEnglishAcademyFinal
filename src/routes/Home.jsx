@@ -10,7 +10,7 @@ import { RxCross2 } from "react-icons/rx";
 import emailjs from "@emailjs/browser";
 import "./Home.css";
 
-const Home = ({ homeRef }) => {
+const Home = () => {
   const [counterStart, setcounterStart] = useState(false);
   // handle form section
   const [formVisible, setformVisible] = useState(true);
@@ -38,7 +38,7 @@ const Home = ({ homeRef }) => {
   };
 
   return (
-    <section ref={homeRef} className="home-container">
+    <section className="home-container">
       {/* Start form section */}
       {/* Modal for the first-time form */}
       <Model

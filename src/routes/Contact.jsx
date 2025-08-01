@@ -7,7 +7,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { FaYoutube } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
-function Contact({ contactRef }) {
+function Contact() {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -25,7 +25,7 @@ function Contact({ contactRef }) {
   };
 
   return (
-    <div ref={contactRef} className="contact-container">
+    <div className="contact-container">
       <motion.div
         className="contact"
         initial={{ opacity: 0, y: 40 }}
