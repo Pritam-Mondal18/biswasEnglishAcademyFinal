@@ -9,7 +9,10 @@
   background: #ced8ff;
   flex-wrap: wrap;
   gap: 20px;
+  min-height: calc(100vh - 94px); /* account for fixed header height */
+  box-sizing: border-box;
   transition: background 0.3s ease, color 0.3s ease;
+  margin-top: 94px; /* push content below the fixed header */
 }
 
 .about-img,
@@ -30,7 +33,6 @@
   height: auto;
   object-fit: cover;
   border-radius: 8px;
-  loading: lazy;
 }
 
 .paragraph.about {
@@ -83,5 +85,6 @@
 @media (max-width: 360px) {
   .paragraph.about {
     font-size: 13px;
+    padding-bottom: 15px;
   }
 }
