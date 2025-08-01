@@ -60,7 +60,7 @@
   transition: all 0.3s ease;
 }
 
-.menu-items li {
+/* .menu-items li {
   cursor: pointer;
   font-weight: 500;
   font-size: 16px;
@@ -81,6 +81,40 @@
 .menu-items li::after,
 .menu-items li.active::after {
   display: none;
+} */
+
+.menu-items li {
+  position: relative;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--link-color);
+  transition: color 0.3s ease;
+}
+
+.menu-items li a {
+  color: inherit;
+  text-decoration: none;
+}
+.menu-items li:hover,
+.menu-items li.active {
+  color: var(--active-link-color);
+}
+.menu-items li::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--active-link-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.menu-items li:hover::after,
+.menu-items li.active::after {
+  transform: scaleX(1);
 }
 
 /* Desktop menu */
