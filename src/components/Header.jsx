@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 import "./Header.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp, IoPersonCircle } from "react-icons/io5";
@@ -8,13 +9,11 @@ import { IoCloseSharp, IoPersonCircle } from "react-icons/io5";
 const Header = () => {
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("theme") || "light";
-  });
+  const [theme, setTheme] = useState(() => Cookies.get("theme") || "light");
 
   useEffect(() => {
+    Cookies.set("theme", theme, { expires: 365 });
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -69,7 +68,10 @@ const Header = () => {
       </ul>
 
       <div className="icon-group">
-        <IoPersonCircle className="toggle-icon login" />
+        <IoPersonCircle
+          className="toggle-icon login"
+          onClick={() => alert("Login system coming soon!")}
+        />
         <span className="toggle-icon" onClick={toggleTheme}>
           {theme === "light" ? "🌙" : "☀️"}
         </span>

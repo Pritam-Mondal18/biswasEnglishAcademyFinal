@@ -1,6 +1,8 @@
-// src/App.jsx
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import Header from "../components/Header";
+
 import Home from "./Home";
 import About from "./About";
 import Services from "./Services";
@@ -9,15 +11,22 @@ import Review from "./Review";
 import Contact from "./Contact";
 
 const App = () => {
+  const location = useLocation();
+
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/services" element={<Services />} />
-      <Route path="/gallery" element={<Gallary />} />
-      <Route path="/review" element={<Review />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
+    <>
+      <Header />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/gallary" element={<Gallary />} />
+          <Route path="/review" element={<Review />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </AnimatePresence>
+    </>
   );
 };
 
