@@ -226,7 +226,6 @@ import Modal from "react-modal";
 import { RxCross2 } from "react-icons/rx";
 import emailjs from "@emailjs/browser";
 import Footer from "../components/Footer";
-
 import "./Home.css";
 
 const Home = () => {
@@ -236,7 +235,6 @@ const Home = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs
       .sendForm(
         import.meta.env.VITE_SERVICE_ID,
@@ -244,22 +242,19 @@ const Home = () => {
         form.current,
         import.meta.env.VITE_PUBLIC_KEY
       )
-      .then(() => {
-        alert("Email sent successfully!");
-      })
-      .catch((error) => {
-        alert("Failed to send email: " + error.text);
-      });
+      .then(() => alert("Email sent successfully!"))
+      .catch((error) => alert("Failed to send email: " + error.text));
   };
 
   return (
     <motion.section
       className="home-container"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -30 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
     >
-      {/* Contact Form Modal */}
+      {/* Contact Modal */}
       <Modal
         isOpen={formVisible}
         onRequestClose={() => setFormVisible(false)}
@@ -300,16 +295,15 @@ const Home = () => {
         />
       </div>
 
-      {/* Hero Content */}
+      {/* Hero Section */}
       <div className="home-content-wrapper">
         <motion.div
           className="home-content"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           <h1 className="home-heading">Welcome to Biswas English Academy</h1>
-
           <div className="typing-wrapper-row">
             <span className="fixed-line">
               Elevate your English skills with&nbsp;
@@ -329,7 +323,6 @@ const Home = () => {
               />
             </span>
           </div>
-
           <motion.button
             className="cta-button"
             whileHover={{ scale: 1.05 }}
@@ -342,9 +335,9 @@ const Home = () => {
 
         <motion.div
           className="home-image-wrapper"
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
+          transition={{ delay: 0.4, duration: 0.7 }}
         >
           <img
             src="/images/pm1.jpg"
@@ -355,7 +348,7 @@ const Home = () => {
         </motion.div>
       </div>
 
-      {/* Counter Animation Section */}
+      {/* Stats Animation */}
       <div className="animation">
         <motion.div
           className="numberAnimation"
@@ -407,6 +400,7 @@ const Home = () => {
         </motion.div>
       </div>
 
+      {/* Footer */}
       <Footer />
     </motion.section>
   );
