@@ -1,6 +1,7 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Footer from "../components/Footer";
 import "./Services.css";
 
 const fadeInVariant = {
@@ -71,79 +72,82 @@ const Section = ({ title, content }) => (
 
 function Services({ servicesRef }) {
   return (
-    <div ref={servicesRef} className="services-container">
-      <Section
-        title="Spoken English Classes for Seniors:"
-        content={[
-          [
-            "Spoken English",
-            "(for Seniors)",
+    <>
+      <div className="services-container">
+        <Section
+          title="Spoken English Classes for Seniors:"
+          content={[
             [
-              "Zero Admission Fee",
-              "Free Demo Classes",
-              "Course Duration: 6 months",
-              "Monday & Thursday",
-              "Time: 6:30pm to 8pm",
-              "Course Fee: ₹2999/-",
+              "Spoken English",
+              "(for Seniors)",
+              [
+                "Zero Admission Fee",
+                "Free Demo Classes",
+                "Course Duration: 6 months",
+                "Monday & Thursday",
+                "Time: 6:30pm to 8pm",
+                "Course Fee: ₹2999/-",
+              ],
             ],
-          ],
-          [
-            "Spoken English",
-            "(for Seniors)",
             [
-              "Zero Admission Fee",
-              "Free Demo Classes",
-              "Course Duration: 6 months",
-              "Tuesday & Friday",
-              "Time: 6:30pm to 8pm",
-              "Course Fee: ₹2999/-",
+              "Spoken English",
+              "(for Seniors)",
+              [
+                "Zero Admission Fee",
+                "Free Demo Classes",
+                "Course Duration: 6 months",
+                "Tuesday & Friday",
+                "Time: 6:30pm to 8pm",
+                "Course Fee: ₹2999/-",
+              ],
             ],
-          ],
-          [
-            "Spoken English",
-            "(for Seniors)",
             [
-              "Zero Admission Fee",
-              "Free Demo Classes",
-              "Course Duration: 6 months",
-              "Sunday",
-              "Time: 10:30am to 1:30pm",
-              "Course Fee: ₹2999/-",
+              "Spoken English",
+              "(for Seniors)",
+              [
+                "Zero Admission Fee",
+                "Free Demo Classes",
+                "Course Duration: 6 months",
+                "Sunday",
+                "Time: 10:30am to 1:30pm",
+                "Course Fee: ₹2999/-",
+              ],
             ],
-          ],
-        ]}
-      />
+          ]}
+        />
 
-      <Section
-        title="Spoken English Classes for Juniors:"
-        content={[
-          [
-            "Spoken English",
-            "(Age Group: 10-15 years)",
+        <Section
+          title="Spoken English Classes for Juniors:"
+          content={[
             [
-              "Zero Admission Fee",
-              "Free Demo Classes",
-              "Course Duration: 6 months",
-              "Wednesday & Saturday",
-              "Time: 6:30pm to 8pm",
-              "Course Fee: ₹2999/-",
+              "Spoken English",
+              "(Age Group: 10-15 years)",
+              [
+                "Zero Admission Fee",
+                "Free Demo Classes",
+                "Course Duration: 6 months",
+                "Wednesday & Saturday",
+                "Time: 6:30pm to 8pm",
+                "Course Fee: ₹2999/-",
+              ],
             ],
-          ],
-          [
-            "Spoken English",
-            "(Age Group: 10-15 years)",
             [
-              "Zero Admission Fee",
-              "Free Demo Classes",
-              "Course Duration: 6 months",
-              "Sunday",
-              "Time: 07:00am to 10:30am",
-              "Course Fee: ₹2999/-",
+              "Spoken English",
+              "(Age Group: 10-15 years)",
+              [
+                "Zero Admission Fee",
+                "Free Demo Classes",
+                "Course Duration: 6 months",
+                "Sunday",
+                "Time: 07:00am to 10:30am",
+                "Course Fee: ₹2999/-",
+              ],
             ],
-          ],
-        ]}
-      />
-    </div>
+          ]}
+        />
+      </div>
+      <Footer />
+    </>
   );
 }
 

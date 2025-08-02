@@ -1,12 +1,26 @@
 /* Base styles */
-.services-container {
+/* .services-container {
+  min-height: 100vh;
   padding: 2rem 1rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-color);
-  /* background-color: var(--bg-color); */
-  background-color: #ced8ff;
   transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+.services-container {
+  min-height: calc(100vh - 94px); /* ensures full screen excluding header */
+  padding: 2rem 1rem 4rem; /* bottom padding added for footer space */
+  padding-top: 6rem; /* ~96px to clear header */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  /* background-color: var(--bg-color); */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
+
 /* Section heading */
 .section-heading h1 {
   font-size: 2rem;
