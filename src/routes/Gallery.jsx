@@ -6,7 +6,7 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import { motion } from "framer-motion";
 
 import "yet-another-react-lightbox/styles.css";
-import "./Gallary.css";
+import "./Gallery.css";
 
 const images = [
   { src: "/images/1.jpg", title: "Image 1" },
@@ -40,7 +40,7 @@ const imageVariants = {
   }),
 };
 
-const Gallary = () => {
+const Gallery = () => {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -84,4 +84,4 @@ const Gallary = () => {
   );
 };
 
-export default Gallary;
+export default Gallery;

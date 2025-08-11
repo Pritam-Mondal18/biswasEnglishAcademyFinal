@@ -6,7 +6,8 @@ import Header from "../components/Header";
 import Home from "./Home";
 import About from "./About";
 import Services from "./Services";
-import Gallary from "./Gallary";
+// import Gallary from "./Gallary";
+import Gallery from "./Gallery";
 import Review from "./Review";
 import Contact from "./Contact";
 
@@ -21,7 +22,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/gallary" element={<Gallary />} />
+          {/* <Route path="/gallary" element={<Gallary />} /> */}
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/review" element={<Review />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
