@@ -3,6 +3,7 @@ import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 
 import "yet-another-react-lightbox/styles.css";
@@ -45,42 +46,45 @@ const Gallery = () => {
   const [index, setIndex] = useState(0);
 
   return (
-    <motion.div
-      className="gallery-container"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-    >
-      <div className="gallery-grid">
-        {images.map((img, i) => (
-          <motion.img
-            key={i}
-            src={img.src}
-            alt={img.title}
-            className="gallery-image"
-            variants={imageVariants}
-            custom={i}
-            onClick={() => {
-              setIndex(i);
-              setOpen(true);
-            }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 200 }}
-          />
-        ))}
-      </div>
+    <>
+      <motion.div
+        className="gallery-container"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="gallery-grid">
+          {images.map((img, i) => (
+            <motion.img
+              key={i}
+              src={img.src}
+              alt={img.title}
+              className="gallery-image"
+              variants={imageVariants}
+              custom={i}
+              onClick={() => {
+                setIndex(i);
+                setOpen(true);
+              }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            />
+          ))}
+        </div>
 
-      <Lightbox
-        open={open}
-        close={() => setOpen(false)}
-        index={index}
-        slides={images}
-        plugins={[Zoom, Captions, Fullscreen]}
-        captions={{ showToggle: true }}
-        animation={{ zoom: 250 }}
-      />
-    </motion.div>
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          index={index}
+          slides={images}
+          plugins={[Zoom, Captions, Fullscreen]}
+          captions={{ showToggle: true }}
+          animation={{ zoom: 250 }}
+        />
+      </motion.div>
+      <Footer />
+    </>
   );
 };
 

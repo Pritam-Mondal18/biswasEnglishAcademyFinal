@@ -13,7 +13,7 @@
 .gallery-container {
   /* background-color: var(--bg-color); */
   background-color: #ced8ff;
-  padding: 2rem 1rem;
+  padding: 7rem 1rem;
   transition: background-color 0.3s ease;
 }
 
