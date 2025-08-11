@@ -1,45 +1,57 @@
+.review-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .review-section {
-  padding-top: 90px;
+  flex: 1;
   width: 100%;
-  min-height: 80vh;
+  padding: 80px 24px;
   background-color: #ced8ff;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.5s ease;
   box-sizing: border-box;
-  position: relative;
+  transition: background-color 0.5s ease;
 }
 
-/* Responsive Design */
+/* Large desktops */
+@media (min-width: 1440px) {
+  .review-section {
+    padding: 100px 80px;
+  }
+}
+
+/* Laptops & large tablets */
 @media (max-width: 1024px) {
   .review-section {
-    padding-top: 70px;
+    padding: 110px 40px;
   }
 }
 
+/* Tablets & small laptops */
 @media (max-width: 768px) {
   .review-section {
-    padding-top: 60px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 110px 24px;
   }
 }
 
+/* Phones */
 @media (max-width: 480px) {
   .review-section {
-    padding-top: 50px;
+    padding: 110px 16px;
   }
 }
 
+/* Extra small phones */
 @media (max-width: 320px) {
   .review-section {
-    padding-top: 40px;
+    padding: 115px 12px;
   }
 }
-/* -------------------------------
-   Dark Theme Overrides
----------------------------------- */
+
+/* Dark theme */
 [data-theme="dark"] .review-section {
   background: #1e293b;
 }
