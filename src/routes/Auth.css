@@ -1,0 +1,155 @@
+/* ========== Auth Form Styling (Theme Aware) ========== */
+.auth-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 2rem;
+  background: var(--modal-bg);
+  color: var(--modal-text);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.auth-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+/* Form inputs */
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-container input {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-container input:focus {
+  border-color: var(--active-link-color);
+  box-shadow: 0 0 6px var(--active-link-color);
+}
+
+/* Buttons */
+.auth-container button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.auth-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--modal-text);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.auth-close-btn:hover {
+  transform: scale(1.2);
+  color: var(--active-link-color);
+}
+
+/* ensure auth-container supports absolute positioning */
+.auth-container {
+  position: relative;
+}
+
+/* Primary (Login / Signup) button */
+.auth-container button[type="submit"] {
+  background: linear-gradient(90deg, #ec4899, #3b82f6);
+  color: #fff;
+  font-weight: 600;
+}
+
+.auth-container button[type="submit"]:hover {
+  transform: scale(1.03);
+}
+
+/* Google button */
+.google-btn {
+  margin-top: 1rem;
+  background: #fff;
+  color: #444;
+  font-weight: 500;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+[data-theme="dark"] .google-btn {
+  background: #2d3748;
+  color: #fff;
+  border-color: #444;
+}
+
+.google-btn:hover {
+  background: #f5f5f5;
+}
+
+[data-theme="dark"] .google-btn:hover {
+  background: #3b465a;
+}
+
+/* Auth links (below form) */
+.auth-links {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.auth-links a {
+  font-size: 0.9rem;
+  color: var(--active-link-color);
+  text-decoration: none;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-container {
+    margin: 80px 20px;
+    padding: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    margin: 60px 15px;
+    padding: 1.5rem;
+  }
+
+  .auth-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .auth-container input,
+  .auth-container button {
+    font-size: 0.9rem;
+  }
+}

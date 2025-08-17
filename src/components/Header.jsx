@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation, useNavigate } from "react-router-dom"; // added useNavigate
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./Header.css";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp, IoPersonCircle } from "react-icons/io5";
 
 const Header = () => {
   const location = useLocation();
-  const navigate = useNavigate(); // initialize navigate
+  const navigate = useNavigate();
+
   const [showMenu, setShowMenu] = useState(false);
   const [theme, setTheme] = useState(() => Cookies.get("theme") || "light");
 
+  // Apply & persist theme
   useEffect(() => {
     Cookies.set("theme", theme, { expires: 365 });
     document.documentElement.setAttribute("data-theme", theme);
@@ -32,12 +35,18 @@ const Header = () => {
 
   return (
     <header className="navbar">
-      <Link to="/">
-        <img src="/images/logoFinal.png" alt="Logo" className="logo" />
+      {/* Logo */}
+      <Link to="/" className="logo-link">
+        <img
+          src="/images/logoFinal.png"
+          alt="Biswas English Academy Logo"
+          className="logo"
+        />
       </Link>
 
       <h3 className="heading">Biswas English Academy</h3>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {showMenu && (
           <motion.ul
@@ -60,6 +69,7 @@ const Header = () => {
         )}
       </AnimatePresence>
 
+      {/* Desktop Menu */}
       <ul className="menu-items menu-web">
         {links.map(({ name, path }) => (
           <li key={name} className={location.pathname === path ? "active" : ""}>
@@ -68,17 +78,29 @@ const Header = () => {
         ))}
       </ul>
 
+      {/* Icons */}
       <div className="icon-group">
+        {/* Login/Signup */}
         <IoPersonCircle
           className="toggle-icon login"
-          onClick={() => navigate("/login")} // navigate instead of alert
+          onClick={() => navigate("/login")}
+          title="Login / Sign Up"
         />
-        <span className="toggle-icon" onClick={toggleTheme}>
+
+        {/* Dark/Light Mode */}
+        <span
+          className="toggle-icon"
+          onClick={toggleTheme}
+          title="Toggle Theme"
+        >
           {theme === "light" ? "🌙" : "☀️"}
         </span>
+
+        {/* Hamburger Menu */}
         <span
           className="menu-icon"
           onClick={() => setShowMenu((prev) => !prev)}
+          title="Menu"
         >
           {showMenu ? <IoCloseSharp /> : <GiHamburgerMenu />}
         </span>
