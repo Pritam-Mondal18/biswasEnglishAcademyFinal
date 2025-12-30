@@ -331,3 +331,31 @@
 .profile-action-btn:hover {
   background: #1d4ed8;
 }
+
+/* Dark Theme Styles */
+[data-theme="dark"] .dashboard-wrapper {
+  background: #1e293b;
+}
+[data-theme="dark"] .sidebar {
+  background: #344663;
+}
+[data-theme="dark"] .profile {
+  background: #344663;
+}
+
+[data-theme="dark"] .sidebar .logo,
+.main .header h1 {
+  color: #ec4899;
+}
+[data-theme="dark"] .profile h3 {
+  color: #f1f5f9;
+}
+[data-theme="dark"] .role {
+  color: #f1f5f9;
+}
+[data-theme="dark"] .profile-contact a {
+  color: #f1f5f9;
+}
+[data-theme="dark"] .address-text {
+  color: #f1f5f9;
+}
