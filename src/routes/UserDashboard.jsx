@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./UserDashboard.css";
+import Footer from "../components/Footer";
 import axios from "axios";
 import CountUp from "react-countup";
 import {
@@ -131,298 +132,301 @@ const UserDashboard = () => {
   );
 
   return (
-    <div className="dashboard-wrapper">
-      {/* ================= SIDEBAR ================= */}
-      <aside className="sidebar">
-        <h2 className="logo">Dashboard</h2>
-        <input className="search" placeholder="Search..." />
+    <>
+      <div className="dashboard-wrapper">
+        {/* ================= SIDEBAR ================= */}
+        <aside className="sidebar">
+          <h2 className="logo">Dashboard</h2>
+          <input className="search" placeholder="Search..." />
 
-        <nav>
-          <button className="nav active">Dashboard</button>
-          <button className="nav">My Courses</button>
-          <button className="nav">Analytics</button>
-        </nav>
-      </aside>
+          <nav>
+            <button className="nav active">Dashboard</button>
+            <button className="nav">My Courses</button>
+            <button className="nav">Analytics</button>
+          </nav>
+        </aside>
 
-      {/* ================= MAIN ================= */}
-      <main className="main">
-        <div className="header">
-          <h1>
-            Welcome Back <span>👋</span>
-          </h1>
-          <p>{todayFormatted}</p>
-        </div>
-
-        {/* ================= STATS ================= */}
-        <div className="stats">
-          {/* HOURS CARD */}
-          <div className="stat-card large">
-            <div className="stat-header">
-              <h3>Time Spendings</h3>
-              <select value={view} onChange={(e) => setView(e.target.value)}>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-              </select>
-            </div>
-
-            <h2 className="hours-total">
-              {view === "weekly" ? "10h" : "40h"} <span>20m</span>
-            </h2>
-
-            <Bar data={hoursData} options={hoursOptions} />
+        {/* ================= MAIN ================= */}
+        <main className="main">
+          <div className="header">
+            <h1>
+              Welcome Back <span>👋</span>
+            </h1>
+            <p>{todayFormatted}</p>
           </div>
 
-          {/* COURSE OVERVIEW CARD */}
-          <div className="stat-card">
-            <h3>🎓 Course Overview</h3>
-
-            <div className="course-metrics vertical">
-              {/* Purchased */}
-              <div className="metric">
-                <div className="icon pink">
-                  <FaGraduationCap />
-                </div>
-                <div>
-                  <h2>
-                    <CountUp end={stats.purchased} duration={1.5} />
-                  </h2>
-                  <span>Purchased Courses</span>
-                </div>
+          {/* ================= STATS ================= */}
+          <div className="stats">
+            {/* HOURS CARD */}
+            <div className="stat-card large">
+              <div className="stat-header">
+                <h3>Time Spendings</h3>
+                <select value={view} onChange={(e) => setView(e.target.value)}>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                </select>
               </div>
 
-              {/* Attendance */}
-              <div className="metric">
-                <div className="icon blue">
-                  <FaChartLine />
-                </div>
-                <div>
-                  <h2>
-                    <CountUp end={stats.attendance} duration={1.5} />%
-                  </h2>
-                  <span>Attendance</span>
-                </div>
-              </div>
+              <h2 className="hours-total">
+                {view === "weekly" ? "10h" : "40h"} <span>20m</span>
+              </h2>
 
-              {/* Finished */}
-              <div className="metric">
-                <div className="icon green">
-                  <FaCheckCircle />
-                </div>
-                <div>
-                  <h2>
-                    <CountUp end={stats.finished} duration={1.5} />
-                  </h2>
-                  <span>Finished Courses</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ================= CONTENT ================= */}
-        <div className="content-grid">
-          <div className="card">
-            <h3>Homework Progress</h3>
-
-            <div className="progress-item">
-              <span>User Experience Design</span>
-              <div className="bar">
-                <div style={{ width: "92%" }} />
-              </div>
+              <Bar data={hoursData} options={hoursOptions} />
             </div>
 
-            <div className="progress-item">
-              <span>User Interface Design</span>
-              <div className="bar">
-                <div style={{ width: "52%" }} />
+            {/* COURSE OVERVIEW CARD */}
+            <div className="stat-card">
+              <h3>🎓 Course Overview</h3>
+
+              <div className="course-metrics vertical">
+                {/* Purchased */}
+                <div className="metric">
+                  <div className="icon pink">
+                    <FaGraduationCap />
+                  </div>
+                  <div>
+                    <h2>
+                      <CountUp end={stats.purchased} duration={1.5} />
+                    </h2>
+                    <span>Purchased Courses</span>
+                  </div>
+                </div>
+
+                {/* Attendance */}
+                <div className="metric">
+                  <div className="icon blue">
+                    <FaChartLine />
+                  </div>
+                  <div>
+                    <h2>
+                      <CountUp end={stats.attendance} duration={1.5} />%
+                    </h2>
+                    <span>Attendance</span>
+                  </div>
+                </div>
+
+                {/* Finished */}
+                <div className="metric">
+                  <div className="icon green">
+                    <FaCheckCircle />
+                  </div>
+                  <div>
+                    <h2>
+                      <CountUp end={stats.finished} duration={1.5} />
+                    </h2>
+                    <span>Finished Courses</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="card course-statistics">
-            <h3>Course Statistics</h3>
+          {/* ================= CONTENT ================= */}
+          <div className="content-grid">
+            <div className="card">
+              <h3>Homework Progress</h3>
 
-            <div className="stats-body">
-              {/* DONUT */}
-              <div
-                className="donut"
-                style={{
-                  background: `conic-gradient(
+              <div className="progress-item">
+                <span>User Experience Design</span>
+                <div className="bar">
+                  <div style={{ width: "92%" }} />
+                </div>
+              </div>
+
+              <div className="progress-item">
+                <span>User Interface Design</span>
+                <div className="bar">
+                  <div style={{ width: "52%" }} />
+                </div>
+              </div>
+            </div>
+
+            <div className="card course-statistics">
+              <h3>Course Statistics</h3>
+
+              <div className="stats-body">
+                {/* DONUT */}
+                <div
+                  className="donut"
+                  style={{
+                    background: `conic-gradient(
           #ec4899 0% 40%,
           #3b82f6 40% 70%,
           #22d3ee 70% 100%
         )`,
-                }}
-              >
-                <div className="donut-center">22</div>
-              </div>
+                  }}
+                >
+                  <div className="donut-center">22</div>
+                </div>
 
-              {/* LEGEND */}
-              <ul className="stats-legend">
-                <li>
-                  <span className="dot pink"></span>
-                  Incomplete 40%
-                </li>
-                <li>
-                  <span className="dot blue"></span>
-                  Completed 30%
-                </li>
-                <li>
-                  <span className="dot cyan"></span>
-                  In Progress 20%
-                </li>
-              </ul>
+                {/* LEGEND */}
+                <ul className="stats-legend">
+                  <li>
+                    <span className="dot pink"></span>
+                    Incomplete 40%
+                  </li>
+                  <li>
+                    <span className="dot blue"></span>
+                    Completed 30%
+                  </li>
+                  <li>
+                    <span className="dot cyan"></span>
+                    In Progress 20%
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
 
-      {/* ================= PROFILE ================= */}
-      <aside className="profile">
-        {/* IMAGE */}
-        <div className="profile-img-wrapper">
-          <img
-            src={profileImage || "https://i.pravatar.cc/150"}
-            alt="profile"
-            className="profile-img"
-          />
+        {/* ================= PROFILE ================= */}
+        <aside className="profile">
+          {/* IMAGE */}
+          <div className="profile-img-wrapper">
+            <img
+              src={profileImage || "https://i.pravatar.cc/150"}
+              alt="profile"
+              className="profile-img"
+            />
 
-          <label className="upload-btn">
-            Change
-            <input type="file" hidden onChange={handleImageUpload} />
-          </label>
-        </div>
+            <label className="upload-btn">
+              Change
+              <input type="file" hidden onChange={handleImageUpload} />
+            </label>
+          </div>
 
-        {/* NAME */}
-        {editMode ? (
-          <input
-            className="profile-input"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        ) : (
-          <h3>{name}</h3>
-        )}
+          {/* NAME */}
+          {editMode ? (
+            <input
+              className="profile-input"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          ) : (
+            <h3>{name}</h3>
+          )}
 
-        <p className="role">{role}</p>
+          <p className="role">{role}</p>
 
-        {/* CONTACT INFO */}
-        <div className="profile-contact">
-          {/* PHONE */}
-          <div className="contact-item">
-            <span>📞</span>
-            {editMode ? (
-              <input
-                className="profile-input"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
-            ) : (
-              <a href={`tel:${phone}`}>{phone}</a>
+          {/* CONTACT INFO */}
+          <div className="profile-contact">
+            {/* PHONE */}
+            <div className="contact-item">
+              <span>📞</span>
+              {editMode ? (
+                <input
+                  className="profile-input"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              ) : (
+                <a href={`tel:${phone}`}>{phone}</a>
+              )}
+            </div>
+
+            {/* ADDRESS */}
+            <div className="contact-item">
+              <span>📍</span>
+              {editMode ? (
+                <textarea
+                  className="profile-textarea"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+              ) : (
+                <span className="address-text">{address}</span>
+              )}
+            </div>
+          </div>
+
+          {/* ACTION BUTTON */}
+          <button
+            className="profile-action-btn"
+            onClick={() => setEditMode(!editMode)}
+          >
+            {editMode ? "Save Profile" : "Edit Profile"}
+          </button>
+
+          {/* ROLE-BASED STATS */}
+          <div className="profile-stats">
+            {role === "Student" && (
+              <>
+                <div>
+                  <h4>10</h4>
+                  <span>Rank</span>
+                </div>
+                <div>
+                  <h4>85%</h4>
+                  <span>Attendance</span>
+                </div>
+                <div>
+                  <h4>12</h4>
+                  <span>Courses</span>
+                </div>
+              </>
+            )}
+
+            {role === "Teacher" && (
+              <>
+                <div>
+                  <h4>6</h4>
+                  <span>Courses</span>
+                </div>
+                <div>
+                  <h4>120</h4>
+                  <span>Students</span>
+                </div>
+                <div>
+                  <h4>4.8⭐</h4>
+                  <span>Rating</span>
+                </div>
+              </>
+            )}
+
+            {role === "Admin" && (
+              <>
+                <div>
+                  <h4>25</h4>
+                  <span>Teachers</span>
+                </div>
+                <div>
+                  <h4>420</h4>
+                  <span>Students</span>
+                </div>
+                <div>
+                  <h4>32</h4>
+                  <span>Courses</span>
+                </div>
+              </>
             )}
           </div>
+          {/* 🔥 LIVE CALENDAR */}
+          <div className="calendar">
+            <h4>
+              {today.toLocaleString("default", { month: "long" })} {year}
+            </h4>
 
-          {/* ADDRESS */}
-          <div className="contact-item">
-            <span>📍</span>
-            {editMode ? (
-              <textarea
-                className="profile-textarea"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            ) : (
-              <span className="address-text">{address}</span>
-            )}
+            <div className="calendar-grid">
+              {["S", "M", "T", "W", "T", "F", "S"].map((d) => (
+                <span key={d} className="day-label">
+                  {d}
+                </span>
+              ))}
+
+              {calendarDays.map((day, i) => (
+                <span
+                  key={i}
+                  className={`day ${day === today.getDate() ? "today" : ""}`}
+                >
+                  {day || ""}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* ACTION BUTTON */}
-        <button
-          className="profile-action-btn"
-          onClick={() => setEditMode(!editMode)}
-        >
-          {editMode ? "Save Profile" : "Edit Profile"}
-        </button>
-
-        {/* ROLE-BASED STATS */}
-        <div className="profile-stats">
-          {role === "Student" && (
-            <>
-              <div>
-                <h4>10</h4>
-                <span>Rank</span>
-              </div>
-              <div>
-                <h4>85%</h4>
-                <span>Attendance</span>
-              </div>
-              <div>
-                <h4>12</h4>
-                <span>Courses</span>
-              </div>
-            </>
-          )}
-
-          {role === "Teacher" && (
-            <>
-              <div>
-                <h4>6</h4>
-                <span>Courses</span>
-              </div>
-              <div>
-                <h4>120</h4>
-                <span>Students</span>
-              </div>
-              <div>
-                <h4>4.8⭐</h4>
-                <span>Rating</span>
-              </div>
-            </>
-          )}
-
-          {role === "Admin" && (
-            <>
-              <div>
-                <h4>25</h4>
-                <span>Teachers</span>
-              </div>
-              <div>
-                <h4>420</h4>
-                <span>Students</span>
-              </div>
-              <div>
-                <h4>32</h4>
-                <span>Courses</span>
-              </div>
-            </>
-          )}
-        </div>
-        {/* 🔥 LIVE CALENDAR */}
-        <div className="calendar">
-          <h4>
-            {today.toLocaleString("default", { month: "long" })} {year}
-          </h4>
-
-          <div className="calendar-grid">
-            {["S", "M", "T", "W", "T", "F", "S"].map((d) => (
-              <span key={d} className="day-label">
-                {d}
-              </span>
-            ))}
-
-            {calendarDays.map((day, i) => (
-              <span
-                key={i}
-                className={`day ${day === today.getDate() ? "today" : ""}`}
-              >
-                {day || ""}
-              </span>
-            ))}
-          </div>
-        </div>
-      </aside>
-    </div>
+        </aside>
+      </div>
+      <Footer />
+    </>
   );
 };
 
