@@ -88,6 +88,78 @@
 }
 
 /* ========== CONTENT ========== */
+
+/* ================= COURSE STATISTICS ================= */
+
+.course-statistics {
+  padding: 24px;
+}
+
+.course-statistics h3 {
+  margin-bottom: 20px;
+}
+
+.stats-body {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* DONUT */
+.donut {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.donut-center {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* LEGEND */
+.stats-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stats-legend li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+/* DOT COLORS */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.dot.pink {
+  background: #ec4899;
+}
+
+.dot.blue {
+  background: #3b82f6;
+}
+
+.dot.cyan {
+  background: #22d3ee;
+}
+
 .content-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -110,46 +182,10 @@
   border-radius: 10px;
   overflow: hidden;
 }
-
 .bar div {
   height: 100%;
   background: #e91e63;
 }
-
-.donut {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.circle {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 12px solid #4dabf7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-.red {
-  background: #e91e63;
-}
-.blue {
-  background: #4dabf7;
-}
-.cyan {
-  background: #4dd0e1;
-}
-
-.donut span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-right: 6px;
-}
-
 /* ========== PROFILE ========== */
 .profile {
   background: #fff;
@@ -192,4 +228,106 @@
 .hours-total span {
   font-size: 16px;
   color: #777;
+}
+.course-metrics.vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.course-metrics.vertical .metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-metrics.vertical h2 {
+  font-size: 26px;
+  color: #e91e63;
+  margin: 0;
+}
+
+.course-metrics.vertical span {
+  font-size: 15px;
+  color: #666;
+}
+.calendar {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.calendar h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.day-label {
+  font-weight: 600;
+  color: #888;
+}
+
+.day {
+  padding: 6px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.day.today {
+  background: #ec4899;
+  color: #fff;
+}
+.profile-img-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+.profile-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.upload-btn {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.profile-input,
+.profile-textarea {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.profile-textarea {
+  resize: none;
+  height: 60px;
+}
+
+.profile-action-btn {
+  width: 100%;
+  margin: 12px 0;
+  padding: 8px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.profile-action-btn:hover {
+  background: #1d4ed8;
 }
