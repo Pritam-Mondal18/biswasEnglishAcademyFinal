@@ -130,6 +130,52 @@
   text-decoration: underline;
 }
 
+.forgot-password {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.forgot-password a {
+  font-size: 14px;
+  color: #6b4eff;
+  text-decoration: none;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.auth-divider span {
+  margin: 0 auto;
+  font-size: 13px;
+  color: #999;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.google-btn:hover {
+  background: #f7f7f7;
+}
+
+.google-btn img {
+  width: 18px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .auth-container {

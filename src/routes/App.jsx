@@ -73,6 +73,8 @@ import Review from "./Review";
 import Contact from "./Contact";
 import Login from "./Login";
 import Signup from "./Signup";
+import ForgotPassword from "./ForgotPassword";
+import ResetPassword from "./ResetPassword";
 import ProtectedRoute from "./ProtectedRoute"; // ✅ fixed import
 
 // Dashboards
@@ -106,6 +108,8 @@ const App = () => {
           {/* Auth Pages */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
 
           {/* Protected Routes */}
           <Route
