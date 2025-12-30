@@ -1,230 +1,344 @@
-/* ===============================
-   MAIN LAYOUT
-================================ */
-.teacher-layout {
+/* ======================
+   ROOT VARIABLES
+====================== */
+:root {
+  --bg: #f6f8fc;
+  --white: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --primary: #3b82f6;
+  --green: #22c55e;
+  --orange: #f59e0b;
+  --purple: #8b5cf6;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --radius: 16px;
+}
+
+/* ======================
+   BASE
+====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ======================
+   LAYOUT
+====================== */
+.teacher-wrapper {
+  padding-top: 95px;
   display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 28px;
-  padding: 32px;
-  background: #f6f7fb;
+  grid-template-columns: 260px 1fr;
   min-height: 100vh;
-  align-items: start;
 }
 
-/* ===============================
-   LEFT SIDE (FORM)
-================================ */
-.teacher-left {
-  margin-top: 90px;
-  display: flex;
+/* ======================
+   SIDEBAR
+====================== */
+.teacher-sidebar {
+  background: var(--white);
+  padding: 28px 22px;
+  box-shadow: var(--shadow);
 }
 
-/* FORM CARD */
-.teacher-card {
-  width: 100%;
-  background: #fff;
-  padding: 22px;
-  border-radius: 16px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-
-  display: flex;
-  flex-direction: column;
-  min-height: 420px; /* 🔑 fixes form height */
+.teacher-sidebar .logo {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 30px;
 }
 
-/* FORM HEADER */
-.teacher-card h2 {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 4px;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 13px;
-  color: #777;
-  margin-bottom: 16px;
-}
-
-/* FORM BODY */
-.teacher-card form {
+.teacher-sidebar nav {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  flex: 1;
 }
 
-/* INPUTS */
-.teacher-card input,
-.teacher-card textarea {
-  padding: 11px 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-}
-
-.teacher-card textarea {
-  resize: none;
-  height: 88px;
-}
-
-/* BUTTON — STICKS TO BOTTOM */
-.teacher-card button {
-  margin-top: auto;
-  background: linear-gradient(135deg, #e11d48, #be123c);
-  color: white;
-  padding: 12px;
+.teacher-sidebar .nav {
   border: none;
-  border-radius: 12px;
-  font-weight: bold;
+  background: transparent;
+  padding: 12px 14px;
+  text-align: left;
+  border-radius: 10px;
   font-size: 15px;
+  color: var(--muted);
   cursor: pointer;
+  transition: 0.25s ease;
 }
 
-.teacher-card button:hover {
-  opacity: 0.95;
+.teacher-sidebar .nav:hover,
+.teacher-sidebar .nav.active {
+  background: #eef2ff;
+  color: var(--primary);
+  font-weight: 600;
 }
 
-/* MESSAGE */
-.message {
-  margin-top: 10px;
-  text-align: center;
-  font-size: 13px;
+/* ======================
+   MAIN
+====================== */
+.teacher-main {
+  padding: 30px 36px;
 }
 
-/* ===============================
-   RIGHT SIDE (COURSES)
-================================ */
-.teacher-right {
-  background: #fff;
-  padding: 24px;
-  margin-top: 90px;
-  border-radius: 16px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+/* ======================
+   HEADER
+====================== */
+.teacher-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
-.section-title {
-  margin-bottom: 18px;
+.teacher-header h1 {
+  font-size: 26px;
+  font-weight: 700;
 }
 
-/* ===============================
-   COURSE GRID
-================================ */
-.course-grid {
+.teacher-header p {
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ======================
+   OVERVIEW GRID
+====================== */
+.overview-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-bottom: 30px;
 }
 
-/* ===============================
-   COURSE CARD
-================================ */
-.course-card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 14px;
-  padding: 16px;
-  height: 220px;
-
+.overview-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 8px;
+  transition: transform 0.25s ease;
 }
 
-.course-card:hover {
+.overview-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.course-card h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.overview-card .icon {
+  font-size: 26px;
 }
 
-.course-card p {
-  font-size: 14px;
-  color: #555;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+.icon.blue {
+  color: var(--primary);
+}
+.icon.green {
+  color: var(--green);
+}
+.icon.orange {
+  color: var(--orange);
+}
+.icon.purple {
+  color: var(--purple);
 }
 
-.course-card span {
-  margin-top: auto;
-  text-align: right;
-  font-size: 16px;
-  font-weight: bold;
-  color: #e11d48;
+.overview-card h2 {
+  font-size: 28px;
+  font-weight: 700;
 }
 
-/* ===============================
-   EMPTY STATE
-================================ */
-.empty {
-  color: #777;
+.overview-card span {
+  color: var(--muted);
   font-size: 14px;
 }
 
-/* ===============================
+/* ======================
+   GRID SECTION
+====================== */
+.teacher-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+/* ======================
+   CARD
+====================== */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* /* ======================
+   STUDENT PERFORMANCE
+====================== */
+.performance-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.donut-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+.donut-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* CENTER TEXT */
+.donut-center {
+  /* background: transparent; */
+  margin: auto;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.donut-center h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.donut-center span {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* LEGEND */
+.performance-legend {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.performance-legend li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.green {
+  background: #22c55e;
+}
+
+.dot.blue {
+  background: #3b82f6;
+}
+
+.dot.yellow {
+  background: #f59e0b;
+}
+
+/* ======================
+   ANNOUNCEMENTS
+====================== */
+.announcements {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.announcements li {
+  background: #f1f5f9;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* ======================
+   FEEDBACK
+====================== */
+textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 14px;
+  resize: none;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.primary-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.primary-btn:hover {
+  background: #2563eb;
+}
+
+/* ======================
    RESPONSIVE
-================================ */
-@media (max-width: 900px) {
-  .teacher-layout {
+====================== */
+@media (max-width: 1024px) {
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .teacher-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.course-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+@media (max-width: 768px) {
+  .teacher-wrapper {
+    grid-template-columns: 1fr;
+  }
 
-.course-actions {
-  display: flex;
-  gap: 8px;
-}
+  .teacher-sidebar {
+    display: none;
+  }
 
-.course-actions button {
-  border: none;
-  background: #f3f4f6;
-  padding: 6px 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.course-actions button:hover {
-  background: #e5e7eb;
-}
-
-/* MODAL */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modal-box {
-  background: white;
-  padding: 24px;
-  border-radius: 14px;
-  width: 360px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.modal-actions {
-  display: flex;
-  justify-content: space-between;
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,243 +1,189 @@
-// import { useEffect, useState } from "react";
-// import "./TeacherDashboard.css";
+import React, { useEffect, useState } from "react";
+import "./TeacherDashboard.css";
+import axios from "axios";
+import CountUp from "react-countup";
+import {
+  FaUsers,
+  FaClipboardList,
+  FaBullhorn,
+  FaCheckCircle,
+  FaBookOpen,
+} from "react-icons/fa";
 
-// const API_URL = "http://localhost:5000"; // later move to env
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
 
-// const TeacherDashboard = () => {
-//   const [title, setTitle] = useState("");
-//   const [description, setDescription] = useState("");
-//   const [price, setPrice] = useState("");
-//   const [courses, setCourses] = useState([]);
-//   const [message, setMessage] = useState("");
-//   const [editCourse, setEditCourse] = useState(null);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
-//   const token = localStorage.getItem("token");
-
-//   /* =========================
-//      FETCH COURSES (FIXED)
-//   ========================= */
-//   const fetchCourses = async () => {
-//     try {
-//       const res = await fetch(`${API_URL}/courses`, {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       });
-
-//       if (!res.ok) {
-//         throw new Error("Unauthorized");
-//       }
-
-//       const data = await res.json();
-//       setCourses(data);
-//     } catch (err) {
-//       console.error(err.message);
-//       setMessage("❌ Failed to load courses");
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchCourses();
-//   }, []);
-
-//   /* =========================
-//      ADD COURSE
-//   ========================= */
-//   const addCourse = async (e) => {
-//     e.preventDefault();
-
-//     try {
-//       const res = await fetch(`${API_URL}/courses/add`, {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization: `Bearer ${token}`,
-//         },
-//         body: JSON.stringify({ title, description, price }),
-//       });
-
-//       if (!res.ok) {
-//         throw new Error("Unauthorized");
-//       }
-
-//       setMessage("✅ Course added successfully");
-//       setTitle("");
-//       setDescription("");
-//       setPrice("");
-//       fetchCourses();
-//     } catch {
-//       setMessage("❌ Failed to add course");
-//     }
-//   };
-
-//   /* =========================
-//      DELETE COURSE
-//   ========================= */
-//   const deleteCourse = async (id) => {
-//     if (!window.confirm("Are you sure?")) return;
-
-//     try {
-//       const res = await fetch(`${API_URL}/courses/${id}`, {
-//         method: "DELETE",
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       });
-
-//       if (!res.ok) {
-//         throw new Error("Unauthorized");
-//       }
-
-//       fetchCourses();
-//     } catch {
-//       alert("❌ Delete failed");
-//     }
-//   };
-
-//   /* =========================
-//      UPDATE COURSE
-//   ========================= */
-//   const updateCourse = async () => {
-//     try {
-//       const res = await fetch(`${API_URL}/courses/${editCourse._id}`, {
-//         method: "PUT",
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization: `Bearer ${token}`,
-//         },
-//         body: JSON.stringify({
-//           title: editCourse.title,
-//           description: editCourse.description,
-//           price: editCourse.price,
-//         }),
-//       });
-
-//       if (!res.ok) {
-//         throw new Error("Unauthorized");
-//       }
-
-//       setEditCourse(null);
-//       fetchCourses();
-//     } catch {
-//       alert("❌ Update failed");
-//     }
-//   };
-
-//   return (
-//     <div className="teacher-layout">
-//       <div className="teacher-left">
-//         <div className="teacher-card">
-//           <h2>Add New Course</h2>
-
-//           <form onSubmit={addCourse}>
-//             <input
-//               type="text"
-//               placeholder="Course Title"
-//               value={title}
-//               onChange={(e) => setTitle(e.target.value)}
-//               required
-//             />
-
-//             <textarea
-//               placeholder="Course Description"
-//               value={description}
-//               onChange={(e) => setDescription(e.target.value)}
-//               required
-//             />
-
-//             <input
-//               type="number"
-//               placeholder="Price (₹)"
-//               value={price}
-//               onChange={(e) => setPrice(e.target.value)}
-//               required
-//             />
-
-//             <button type="submit">Add Course</button>
-//           </form>
-
-//           {message && <p className="message">{message}</p>}
-//         </div>
-//       </div>
-
-//       <div className="teacher-right">
-//         <h2>Your Courses</h2>
-
-//         <div className="course-grid">
-//           {courses.map((course) => (
-//             <div key={course._id} className="course-card">
-//               <h3>{course.title}</h3>
-//               <p>{course.description}</p>
-//               <span>₹ {course.price}</span>
-
-//               <div className="course-actions">
-//                 <button onClick={() => setEditCourse(course)}>✏️</button>
-//                 <button onClick={() => deleteCourse(course._id)}>🗑️</button>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//       {editCourse && (
-//         <div className="modal">
-//           <div className="modal-box">
-//             <h3>Edit Course</h3>
-
-//             <input
-//               value={editCourse.title}
-//               onChange={(e) =>
-//                 setEditCourse({ ...editCourse, title: e.target.value })
-//               }
-//             />
-
-//             <textarea
-//               value={editCourse.description}
-//               onChange={(e) =>
-//                 setEditCourse({ ...editCourse, description: e.target.value })
-//               }
-//             />
-
-//             <input
-//               type="number"
-//               value={editCourse.price}
-//               onChange={(e) =>
-//                 setEditCourse({ ...editCourse, price: e.target.value })
-//               }
-//             />
-
-//             <button onClick={updateCourse}>Save</button>
-//             <button onClick={() => setEditCourse(null)}>Cancel</button>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default TeacherDashboard;
-
-import React from "react";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 const TeacherDashboard = () => {
+  /* ======================
+     OVERVIEW STATS
+  ====================== */
+  const [overview, setOverview] = useState({
+    students: 0,
+    classes: 0,
+    assignments: 0,
+    completed: 0,
+  });
+
+  const today = new Date().toLocaleDateString("en-IN", {
+    weekday: "long",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    axios
+      .get(`${API_URL}/dashboard/teacher-overview`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => setOverview(res.data))
+      .catch(() => console.error("Failed to load teacher dashboard"));
+  }, []);
+
+  /* ======================
+     STUDENT PERFORMANCE
+  ====================== */
+  const performanceData = {
+    labels: ["Excellent", "Good", "Average"],
+    datasets: [
+      {
+        data: [45, 30, 25],
+        backgroundColor: ["#22c55e", "#3b82f6", "#f59e0b"],
+        borderWidth: 0,
+      },
+    ],
+  };
+
+  const performanceOptions = {
+    responsive: true,
+    cutout: "72%", // ✅ correct place
+    plugins: {
+      legend: { display: false },
+      tooltip: { enabled: true },
+    },
+  };
+
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Teacher Dashboard</h1>
+    <div className="teacher-wrapper">
+      {/* ================= SIDEBAR ================= */}
+      <aside className="teacher-sidebar">
+        <h2 className="logo">Teacher Panel</h2>
+        <nav>
+          <button className="nav active">Dashboard</button>
+          <button className="nav">Classrooms</button>
+          <button className="nav">Assignments</button>
+          <button className="nav">Attendance</button>
+          <button className="nav">Analytics</button>
+          <button className="nav">Messages</button>
+          <button className="nav">Settings</button>
+        </nav>
+      </aside>
 
-      <section>
-        <h3>📘 Course Management</h3>
-        <button>Add New Course</button>
-      </section>
+      {/* ================= MAIN ================= */}
+      <main className="teacher-main">
+        <header className="teacher-header">
+          <div>
+            <h1>Welcome Back, Teacher 👋</h1>
+            <p>{today}</p>
+          </div>
+        </header>
 
-      <section>
-        <h3>🖼 Upload Gallery Images</h3>
-        <button>Upload Image</button>
-      </section>
+        {/* ================= OVERVIEW ================= */}
+        <section className="overview-grid">
+          <div className="overview-card">
+            <FaUsers className="icon blue" />
+            <h2>
+              <CountUp end={overview.students} />
+            </h2>
+            <span>Students</span>
+          </div>
 
-      <section>
-        <h3>📝 Attendance</h3>
-        <button>Mark Attendance</button>
-      </section>
+          <div className="overview-card">
+            <FaBookOpen className="icon purple" />
+            <h2>
+              <CountUp end={overview.classes} />
+            </h2>
+            <span>Classes</span>
+          </div>
+
+          <div className="overview-card">
+            <FaClipboardList className="icon orange" />
+            <h2>
+              <CountUp end={overview.assignments} />
+            </h2>
+            <span>Assignments</span>
+          </div>
+
+          <div className="overview-card">
+            <FaCheckCircle className="icon green" />
+            <h2>
+              <CountUp end={overview.completed} />
+            </h2>
+            <span>Completed</span>
+          </div>
+        </section>
+
+        {/* ================= ANALYTICS ================= */}
+        <section className="teacher-grid">
+          {/* STUDENT PERFORMANCE */}
+          <div className="card performance-card">
+            <h3>📊 Student Performance</h3>
+
+            <div className="performance-wrapper">
+              <div className="donut-wrapper">
+                <Doughnut data={performanceData} options={performanceOptions} />
+
+                {/* CENTER TEXT */}
+                <div className="donut-center">
+                  <h2>75%</h2>
+                  <span>Overall</span>
+                </div>
+              </div>
+
+              {/* LEGEND */}
+              <ul className="performance-legend">
+                <li>
+                  <span className="dot green" /> Excellent <b>45%</b>
+                </li>
+                <li>
+                  <span className="dot blue" /> Good <b>30%</b>
+                </li>
+                <li>
+                  <span className="dot yellow" /> Average <b>25%</b>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* ANNOUNCEMENTS */}
+          <div className="card">
+            <h3>
+              <FaBullhorn /> Announcements
+            </h3>
+            <ul className="announcements">
+              <li>📢 Assignment 3 deadline extended</li>
+              <li>📢 Parent-teacher meeting on Friday</li>
+              <li>📢 New grammar resources uploaded</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* ================= FEEDBACK ================= */}
+        <section className="card">
+          <h3>📝 Feedback Center</h3>
+          <textarea
+            placeholder="Leave feedback for students (essay, voice, or notes)..."
+            rows={4}
+          />
+          <button className="primary-btn">Submit Feedback</button>
+        </section>
+      </main>
     </div>
   );
 };
