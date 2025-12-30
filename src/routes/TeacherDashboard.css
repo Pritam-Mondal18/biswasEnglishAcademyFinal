@@ -342,3 +342,22 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 }
+/* Dark Theme Styles */
+[data-theme="dark"] .teacher-wrapper {
+  background: #1e293b;
+}
+[data-theme="dark"] .teacher-sidebar {
+  background: #344663;
+}
+[data-theme="dark"] .teacher-header h1 {
+  color: #ec4899;
+}
+[data-theme="dark"] .teacher-sidebar .logo {
+  color: #fff;
+}
+[data-theme="dark"] .overview-card {
+  background: #eec9c9;
+}
+[data-theme="dark"] .card {
+  background: #eec9c9;
+}
