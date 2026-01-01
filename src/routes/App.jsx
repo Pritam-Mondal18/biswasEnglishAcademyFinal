@@ -3,35 +3,43 @@
 // import { AnimatePresence } from "framer-motion";
 
 // import Header from "../components/Header";
+
+// // Public pages
 // import Home from "./Home";
 // import About from "./About";
 // import Services from "./Services";
 // import Gallery from "./Gallery";
 // import Review from "./Review";
 // import Contact from "./Contact";
+
+// // Auth pages
 // import Login from "./Login";
 // import Signup from "./Signup";
-// import ProtectedRoute from "./routes/ProtectedRoute";
-// // import AuthModal from "../components/AuthModal";
+// import ForgotPassword from "./ForgotPassword";
+// import ResetPassword from "./ResetPassword";
+
+// // Dashboards
+// import UserDashboard from "./UserDashboard";
+// import TeacherDashboard from "./TeacherDashboard";
+// import AdminDashboard from "./AdminDashboard";
+
+// // Protected Route
+// import ProtectedRoute from "./ProtectedRoute";
 
 // const App = () => {
 //   const location = useLocation();
-
-//   // If we navigated to /login or /signup from inside the app,
-//   // keep background page visible and open modal on top.
 //   const state = location.state;
 
 //   return (
 //     <>
 //       <Header />
 
-//       {/* AnimatePresence enables smooth page transitions */}
 //       <AnimatePresence mode="wait" initial={false}>
 //         <Routes
 //           location={state?.background || location}
 //           key={state?.background?.pathname || location.pathname}
 //         >
-//           {/* Main pages */}
+//           {/* ===== PUBLIC ROUTES ===== */}
 //           <Route path="/" element={<Home />} />
 //           <Route path="/about" element={<About />} />
 //           <Route path="/services" element={<Services />} />
@@ -39,18 +47,48 @@
 //           <Route path="/review" element={<Review />} />
 //           <Route path="/contact" element={<Contact />} />
 
-//           {/* Full-page auth routes (SEO friendly) */}
-//           <Route path="/login" element={<Login type="login" />} />
-//           <Route path="/signup" element={<Signup type="signup" />} />
+//           {/* ===== AUTH ROUTES ===== */}
+//           <Route path="/login" element={<Login />} />
+//           <Route path="/signup" element={<Signup />} />
+//           <Route path="/forgot-password" element={<ForgotPassword />} />
+//           <Route path="/reset-password/:token" element={<ResetPassword />} />
+
+//           {/* ===== PROTECTED DASHBOARDS ===== */}
+//           <Route
+//             path="/user-dashboard"
+//             element={
+//               <ProtectedRoute role="student">
+//                 <UserDashboard />
+//               </ProtectedRoute>
+//             }
+//           />
+
+//           <Route
+//             path="/teacher-dashboard"
+//             element={
+//               <ProtectedRoute role="teacher">
+//                 <TeacherDashboard />
+//               </ProtectedRoute>
+//             }
+//           />
+
+//           <Route
+//             path="/admin-dashboard"
+//             element={
+//               <ProtectedRoute role="admin">
+//                 <AdminDashboard />
+//               </ProtectedRoute>
+//             }
+//           />
 //         </Routes>
 //       </AnimatePresence>
 
-//       {/* Modal overlay routes (when coming from inside app) */}
+//       {/* ===== MODAL AUTH ROUTES ===== */}
 //       {state?.background && (
 //         <AnimatePresence mode="wait" initial={false}>
 //           <Routes>
-//             <Route path="/login" element={<Login type="login" isModal />} />
-//             <Route path="/signup" element={<Signup type="signup" isModal />} />
+//             <Route path="/login" element={<Login isModal />} />
+//             <Route path="/signup" element={<Signup isModal />} />
 //           </Routes>
 //         </AnimatePresence>
 //       )}
@@ -71,33 +109,29 @@ import Services from "./Services";
 import Gallery from "./Gallery";
 import Review from "./Review";
 import Contact from "./Contact";
+
 import Login from "./Login";
 import Signup from "./Signup";
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
-import ProtectedRoute from "./ProtectedRoute"; // ✅ fixed import
 
-// Dashboards
-import TeacherDashboard from "./TeacherDashboard";
+import ProtectedRoute from "./ProtectedRoute";
+
 import UserDashboard from "./UserDashboard";
+import TeacherDashboard from "./TeacherDashboard";
+import AdminDashboard from "./AdminDashboard";
 
 const App = () => {
   const location = useLocation();
-
-  // If navigated to /login or /signup from inside the app, show modal
   const state = location.state;
 
   return (
     <>
       <Header />
 
-      {/* AnimatePresence enables smooth page transitions */}
-      <AnimatePresence mode="wait" initial={false}>
-        <Routes
-          location={state?.background || location}
-          key={state?.background?.pathname || location.pathname}
-        >
-          {/* Public Pages */}
+      <AnimatePresence mode="wait">
+        <Routes location={state?.background || location}>
+          {/* PUBLIC */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
@@ -105,13 +139,23 @@ const App = () => {
           <Route path="/review" element={<Review />} />
           <Route path="/contact" element={<Contact />} />
 
-          {/* Auth Pages */}
+          {/* AUTH */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
 
-          {/* Protected Routes */}
+          {/* STUDENT */}
+          <Route
+            path="/user-dashboard"
+            element={
+              <ProtectedRoute role="student">
+                <UserDashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* TEACHER */}
           <Route
             path="/teacher-dashboard"
             element={
@@ -120,26 +164,18 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+
+          {/* ADMIN */}
           <Route
-            path="/user-dashboard"
+            path="/admin-dashboard"
             element={
-              <ProtectedRoute role="user">
-                <UserDashboard />
+              <ProtectedRoute role="admin">
+                <AdminDashboard />
               </ProtectedRoute>
             }
           />
         </Routes>
       </AnimatePresence>
-
-      {/* Modal overlay routes */}
-      {state?.background && (
-        <AnimatePresence mode="wait" initial={false}>
-          <Routes>
-            <Route path="/login" element={<Login isModal />} />
-            <Route path="/signup" element={<Signup isModal />} />
-          </Routes>
-        </AnimatePresence>
-      )}
     </>
   );
 };

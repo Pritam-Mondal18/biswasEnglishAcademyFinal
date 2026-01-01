@@ -33,7 +33,7 @@ const UserDashboard = () => {
   const [profileImage, setProfileImage] = useState(null);
 
   // ROLE (from login)
-  const role = localStorage.getItem("role") || "Student";
+  const role = localStorage.getItem("role") || "student";
 
   // IMAGE UPLOAD
   const handleImageUpload = (e) => {

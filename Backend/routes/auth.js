@@ -1,115 +1,132 @@
-// const crypto = require("crypto");
-// const nodemailer = require("nodemailer");
-// // =====================
-// // FORGOT PASSWORD
-// // =====================
-// router.post("/forgot-password", async (req, res) => {
-//   const user = await User.findOne({ email: req.body.email });
-//   if (!user) return res.status(404).json({ error: "User not found" });
+// import express from "express";
+// import bcrypt from "bcryptjs";
+// import User from "../models/User.js";
 
-//   const token = crypto.randomBytes(32).toString("hex");
+// const router = express.Router();
 
-//   user.resetToken = token;
-//   user.resetTokenExpiry = Date.now() + 15 * 60 * 1000; // 15 mins
-//   await user.save();
+// /* ======================
+//    SIGNUP
+// ====================== */
+// router.post("/signup", async (req, res) => {
+//   try {
+//     const { name, email, password, role } = req.body;
 
-//   const transporter = nodemailer.createTransport({
-//     service: "gmail",
-//     auth: {
-//       user: process.env.EMAIL_USER,
-//       pass: process.env.EMAIL_PASS,
-//     },
-//   });
+//     if (!name || !email || !password || !role) {
+//       return res.status(400).json({ message: "All fields required" });
+//     }
 
-//   const resetLink = `http://localhost:5173/reset-password/${token}`;
+//     const existingUser = await User.findOne({ email });
+//     if (existingUser) {
+//       return res.status(400).json({ message: "User already exists" });
+//     }
 
-//   await transporter.sendMail({
-//     to: user.email,
-//     subject: "Password Reset",
-//     html: `<p>Click <a href="${resetLink}">here</a> to reset password</p>`,
-//   });
+//     const hashedPassword = await bcrypt.hash(password, 12);
 
-//   res.json({ message: "Reset email sent" });
-// });
+//     const user = await User.create({
+//       name,
+//       email,
+//       password: hashedPassword,
+//       role, // student / teacher
+//     });
 
-// // =====================
-// // RESET PASSWORD
-// // =====================
-// router.post("/reset-password/:token", async (req, res) => {
-//   const user = await User.findOne({
-//     resetToken: req.params.token,
-//     resetTokenExpiry: { $gt: Date.now() },
-//   });
-
-//   if (!user) {
-//     return res.status(400).json({ error: "Invalid or expired token" });
+//     res.status(201).json({
+//       success: true,
+//       message: "Signup successful",
+//       userId: user._id,
+//     });
+//   } catch (err) {
+//     console.error("Signup error:", err);
+//     res.status(500).json({ message: "Signup failed" });
 //   }
-
-//   user.password = await bcrypt.hash(req.body.password, 10);
-//   user.resetToken = undefined;
-//   user.resetTokenExpiry = undefined;
-
-//   await user.save();
-
-//   res.json({ message: "Password reset successful" });
 // });
 
-const express = require("express");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+// export default router;
+
+import express from "express";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
 const router = express.Router();
 
-/* ================= REGISTER ================= */
-router.post("/register", async (req, res) => {
+/* ======================
+   SIGNUP
+====================== */
+router.post("/signup", async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
 
-    const exists = await User.findOne({ email });
-    if (exists) return res.status(400).json({ error: "User already exists" });
+    if (!name || !email || !password || !role) {
+      return res.status(400).json({ message: "All fields required" });
+    }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: "User already exists" });
+    }
 
-    const user = new User({
+    const hashedPassword = await bcrypt.hash(password, 12);
+
+    const user = await User.create({
       name,
       email,
       password: hashedPassword,
-      role: role || "student",
+      role,
+      isActive: true,
     });
 
-    await user.save();
-    res.json({ message: "User registered successfully" });
+    res.status(201).json({
+      success: true,
+      message: "Signup successful",
+      userId: user._id,
+    });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error("Signup error:", err);
+    res.status(500).json({ message: "Signup failed" });
   }
 });
 
-/* ================= LOGIN ================= */
+/* ======================
+   LOGIN  ✅ THIS WAS MISSING
+====================== */
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password required" });
+    }
+
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ error: "Invalid credentials" });
+    if (!user) {
+      return res.status(400).json({ message: "Invalid credentials" });
+    }
+
+    if (!user.isActive) {
+      return res.status(403).json({ message: "Account disabled" });
+    }
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ error: "Invalid credentials" });
+    if (!isMatch) {
+      return res.status(400).json({ message: "Invalid credentials" });
+    }
 
     const token = jwt.sign(
       { id: user._id, role: user.role },
-      process.env.JWT_SECRET,
-      { expiresIn: "7d" }
+      process.env.JWT_SECRET || "dev_secret",
+      { expiresIn: "1d" }
     );
 
     res.json({
+      success: true,
       token,
       role: user.role,
       name: user.name,
     });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error("Login error:", err);
+    res.status(500).json({ message: "Login failed" });
   }
 });
 
-module.exports = router;
+export default router;

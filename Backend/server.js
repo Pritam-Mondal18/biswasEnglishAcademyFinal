@@ -169,27 +169,39 @@
 // app.listen(5000, () => {
 //   console.log("Server running on http://localhost:5000");
 // });
+// import mongoose from "mongoose";
+// import dotenv from "dotenv";
+// dotenv.config();
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
 
-require("dotenv").config();
+dotenv.config();
 
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const authRoutes = require("./routes/auth");
-const dashboardRoutes = require("./routes/dashboard");
 const app = express();
 
-app.use(cors());
-app.use(express.json());
-app.use("/dashboard", dashboardRoutes);
+// ✅ CORS (REQUIRED)
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
+// ✅ Body parser
+app.use(express.json());
+
+// Routes
+import authRoutes from "./routes/auth.js";
+app.use("/api/auth", authRoutes);
+
+// MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("❌ MongoDB error:", err.message));
+  .catch((err) => console.error("❌ Mongo error:", err));
 
-app.use("/", authRoutes);
-
-app.listen(process.env.PORT, () => {
-  console.log(`🚀 Server running on port ${process.env.PORT}`);
+app.listen(5000, () => {
+  console.log("🚀 Server running on port 5000");
 });
